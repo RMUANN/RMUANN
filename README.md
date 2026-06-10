@@ -67,9 +67,8 @@ AI + Motion Generation + 3D Interaction
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=<YOUR_GITHUB_USERNAME>&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" />
-
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=<YOUR_GITHUB_USERNAME>&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+<div align="center"> <img src="https://github-profile-trophy.vercel.app/?username=sun0225SUN" /> </div>
+<div align="center"> <img height="137px" src="https://github-readme-stats.vercel.app/api?username=sun0225SUN&hide_title=true&hide_border=true&show_icons=trueline_height=21&text_color=000&icon_color=000&bg_color=0,ea6161,ffc64d,fffc4d,52fa5a&theme=graywhite" /> 
 
 </div>
 
@@ -112,7 +111,7 @@ Research × Engineering × Interaction × Product
 
 ## Let's Connect
 
-* GitHub: [@<RMUANN>](https://github.com/<RMUANN>)
+* GitHub: [@<RMUANN>](https://github.com/RMUANN)
 * Email: [fanzeyuan111@163.com](fanzeyuan111@163.com)
 
 
