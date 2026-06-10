@@ -69,7 +69,7 @@ I am always open to discussions and collaborations around **AI**, **motion gener
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=python,pytorch,cpp,cs,unity,unreal,fastapi,linux,git,vscode,latex" alt="Tech Stack" />
+<img src="https://skillicons.dev/icons?i=python,pytorch,cpp,cs,unity,fastapi,linux,git,vscode,latex" alt="Tech Stack" />
 
 </div>
 
