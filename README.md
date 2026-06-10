@@ -8,8 +8,6 @@
 
 <br/>
 
-<img src="https://komarev.com/ghpvc/?username=RMUANN&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile Views" />
-<img src="https://visitor-badge.glitch.me/badge?page_id=RMUANN" alt="Visitor Badge" />
 
 </div>
 
@@ -56,7 +54,7 @@ I am always open to discussions and collaborations around **AI**, **motion gener
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=python,pytorch,cpp,cs,unity,unreal,js,ts,react,nodejs,fastapi,linux,git,vscode,latex" alt="Tech Stack" />
+<img src="https://skillicons.dev/icons?i=python,golang,unity,c#,linux,git,latex" alt="Tech Stack" />
 
 </div>
 
