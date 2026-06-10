@@ -1,6 +1,6 @@
 <div align="center">
 
-# Hi, I'm RUN MAN 👋
+# Hi, I'm RMUANN 👋
 
 ### Computer Science Graduate Student · AI Explorer · VR/3D Developer · Text-to-Motion Researcher
 
