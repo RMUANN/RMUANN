@@ -67,15 +67,13 @@ AI + Motion Generation + 3D Interaction
 
 <div align="center">
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=RMUANN)](https://github.com/ryo-ma/github-profile-trophy)
-
-username=RMUANN&hide_title=true&hide_border=true&show_icons=trueline_height=21&text_color=000&icon_color=000&bg_color=0,ea6161,ffc64d,fffc4d,52fa5a&theme=graywhite" /> 
+<img src="https://komarev.com/ghpvc/?username=<RMUANN>&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile Views" />
 
 </div>
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com?user=<YOUR_GITHUB_USERNAME>&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+<img src="https://streak-stats.demolab.com?user=<RMUANN>&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
 
 </div>
 
