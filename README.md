@@ -67,13 +67,13 @@ AI + Motion Generation + 3D Interaction
 
 <div align="center">
 
-<img src="https://komarev.com/ghpvc/?username=<RMUANN>&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile Views" />
+<img src="https://komarev.com/ghpvc/?username=RMUANN&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile Views" />
 
 </div>
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com?user=<RMUANN>&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+<img src="https://streak-stats.demolab.com?user=RMUANN&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
 
 </div>
 
@@ -110,7 +110,7 @@ Research × Engineering × Interaction × Product
 
 ## Let's Connect
 
-* GitHub: [@<RMUANN>](https://github.com/RMUANN)
+* GitHub: [RMUANN](https://github.com/RMUANN)
 * Email: [fanzeyuan111@163.com](fanzeyuan111@163.com)
 
 
