@@ -8,7 +8,8 @@
 
 <br/>
 
-<img src="https://komarev.com/ghpvc/?username=<YOUR_GITHUB_USERNAME>&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile Views" />
+<img src="https://komarev.com/ghpvc/?username=RMUANN&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile Views" />
+<img src="https://visitor-badge.glitch.me/badge?page_id=RMUANN" alt="Visitor Badge" />
 
 </div>
 
@@ -29,6 +30,17 @@ I am always open to discussions and collaborations around **AI**, **motion gener
 ---
 
 ## Research Interests
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/Text--to--Motion-Research-blueviolet?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Human%20Motion-Generation-6c5ce7?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Semantic%20Steering-Control-00cec9?style=for-the-badge" />
+<img src="https://img.shields.io/badge/VR%20%26%203D-Interaction-00b894?style=for-the-badge" />
+
+</div>
+
+<br/>
 
 * Text-to-Motion Generation
 * Human Motion Generation
@@ -63,17 +75,41 @@ AI + Motion Generation + 3D Interaction
 
 ---
 
+## GitHub Trophy
+
+<div align="center">
+
+[![trophy](https://github-profile-trophy.vercel.app/?username=RMUANN\&theme=onedark\&row=1\&column=6\&margin-w=10\&margin-h=10)](https://github.com/ryo-ma/github-profile-trophy)
+
+</div>
+
+---
+
 ## GitHub Stats
 
 <div align="center">
 
-<img src="https://komarev.com/ghpvc/?username=RMUANN&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile Views" />
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=RMUANN&show_icons=true&hide_title=true&hide_border=true&text_color=000&icon_color=fff&bg_color=0,52fa5a,4dfcff,c64dff&theme=graywhite" alt="GitHub Stats" />
+
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=RMUANN&hide_title=true&hide_border=true&layout=compact&langs_count=6&text_color=000&icon_color=fff&bg_color=0,52fa5a,4dfcff,c64dff&theme=graywhite" alt="Top Languages" />
 
 </div>
+
+<br/>
 
 <div align="center">
 
 <img src="https://streak-stats.demolab.com?user=RMUANN&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+
+</div>
+
+---
+
+## GitHub Metrics
+
+<div align="center">
+
+<img src="https://metrics.lecoq.io/RMUANN?template=classic&config.timezone=Asia%2FShanghai" alt="GitHub Metrics" />
 
 </div>
 
@@ -99,9 +135,9 @@ Research × Engineering × Interaction × Product
 
 <div align="center">
 
+<img src="https://img.shields.io/badge/AI-Exploration-0984e3?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Text--to--Motion-Research-blueviolet?style=for-the-badge" />
 <img src="https://img.shields.io/badge/VR%20%26%203D-Development-00b894?style=for-the-badge" />
-<img src="https://img.shields.io/badge/AI-Exploration-0984e3?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Full--Stack-Tools-fdcb6e?style=for-the-badge" />
 
 </div>
@@ -111,8 +147,7 @@ Research × Engineering × Interaction × Product
 ## Let's Connect
 
 * GitHub: [RMUANN](https://github.com/RMUANN)
-* Email: [fanzeyuan111@163.com](fanzeyuan111@163.com)
-
+* Email: [fanzeyuan111@163.com](mailto:fanzeyuan111@163.com)
 
 ---
 
