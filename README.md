@@ -9,9 +9,17 @@
 <br/>
 
 
+
+
+<img src="https://komarev.com/ghpvc/?username=RMUANN&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile Views" />
+
+
 </div>
 
 ---
+
+
+
 
 ## About Me
 
@@ -24,6 +32,13 @@ Beyond research, I am familiar with the broader software development stack, from
 My long-term goal is to create a tool that I genuinely love using — and that can also be widely accepted, useful, and meaningful to others.
 
 I am always open to discussions and collaborations around **AI**, **motion generation**, **3D interaction**, **VR development**, and **creative AI tools**.
+
+<div align="center">
+
+<img src="https://metrics.lecoq.io/RMUANN?template=classic&config.timezone=Asia%2FShanghai" alt="GitHub Metrics" />
+
+</div>
+
 
 ---
 
@@ -54,7 +69,14 @@ I am always open to discussions and collaborations around **AI**, **motion gener
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=python,golang,unity,c#,linux,git,latex" alt="Tech Stack" />
+<img src="https://skillicons.dev/icons?i=python,pytorch,cpp,cs,unity,unreal,fastapi,linux,git,vscode,latex" alt="Tech Stack" />
+
+</div>
+
+<br/>
+
+<div align="center">
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=RMUANN&hide_title=true&hide_border=true&layout=compact&langs_count=6&text_color=000&icon_color=fff&bg_color=0,52fa5a,4dfcff,c64dff&theme=graywhite" alt="Top Languages" />
 
 </div>
 
@@ -71,15 +93,6 @@ AI + Motion Generation + 3D Interaction
 * Developing research workflows for experiments, notes, and automation
 * Turning research prototypes into tools with real user value
 
----
-
-## GitHub Trophy
-
-<div align="center">
-
-[![trophy](https://github-profile-trophy.vercel.app/?username=RMUANN\&theme=onedark\&row=1\&column=6\&margin-w=10\&margin-h=10)](https://github.com/ryo-ma/github-profile-trophy)
-
-</div>
 
 ---
 
@@ -89,9 +102,9 @@ AI + Motion Generation + 3D Interaction
 
 <img height="170" src="https://github-readme-stats.vercel.app/api?username=RMUANN&show_icons=true&hide_title=true&hide_border=true&text_color=000&icon_color=fff&bg_color=0,52fa5a,4dfcff,c64dff&theme=graywhite" alt="GitHub Stats" />
 
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=RMUANN&hide_title=true&hide_border=true&layout=compact&langs_count=6&text_color=000&icon_color=fff&bg_color=0,52fa5a,4dfcff,c64dff&theme=graywhite" alt="Top Languages" />
-
 </div>
+
+
 
 <br/>
 
@@ -103,15 +116,6 @@ AI + Motion Generation + 3D Interaction
 
 ---
 
-## GitHub Metrics
-
-<div align="center">
-
-<img src="https://metrics.lecoq.io/RMUANN?template=classic&config.timezone=Asia%2FShanghai" alt="GitHub Metrics" />
-
-</div>
-
----
 
 ## My Direction
 
