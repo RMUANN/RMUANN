@@ -1,0 +1,10 @@
+# Private reference files and intake records
+/data/
+/private-references/
+/CONTENT_INVENTORY.md
+/FACT_CHECK.md
+
+# Local credentials
+.env
+.env.*
+!.env.example
