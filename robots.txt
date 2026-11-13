@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://rmuann.github.io/RMUANN/sitemap.xml

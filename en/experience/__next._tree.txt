@@ -1,0 +1,5 @@
+:HL["/RMUANN/_next/static/css/71ebb22879e0e74d.css","style"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"segments","t":"oc","k":"experience","s":[]},"h":65632,"c":"$Q3"}]]
+1:[["children",{"s":{"n":"locale","t":"d","k":"en","s":["_not-found","_global-error","robots.txt","sitemap.xml"]},"h":196720,"c":"$Q2"}]]
+0:{"b":"IzXxu7YMGKiGnxFSPBWMF","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}
