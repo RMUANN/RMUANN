@@ -1,5 +1,7 @@
 # Zeyuan Fan academic portfolio
 
+Live site: [English](https://rmuann.github.io/RMUANN/en/) · [简体中文](https://rmuann.github.io/RMUANN/zh/).
+
 The site uses Next.js App Router and exports static pages. Node.js 22 or newer is required.
 
 ```sh
