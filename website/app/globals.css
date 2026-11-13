@@ -170,30 +170,19 @@ img, svg { max-width: 100%; }
 .carousel-stage:has(.carousel-arrow) .carousel-slide { padding-inline: clamp(39px, 4vw, 49px); }
 .carousel-slide img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .carousel-slide:focus-visible { outline-offset: -4px; }
-.carousel-controls { position: relative; display: flex; flex-wrap: wrap; justify-content: center; padding: 0 40px 4px; }
-.carousel-dot, .carousel-toggle, .carousel-arrow {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 36px;
-  border: 0;
-  border-radius: 4px;
-  background: transparent;
-  color: var(--accent);
-  cursor: pointer;
-}
-.carousel-dot::before { content: ""; width: 7px; height: 7px; border: 1px solid currentColor; border-radius: 50%; }
-.carousel-dot[aria-current="true"]::before { background: currentColor; }
-.carousel-dot:hover, .carousel-toggle:hover { background: #e9f0e5; }
-.carousel-toggle { position: absolute; inset-inline-end: 6px; font-size: .78rem; }
 .carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  display: grid;
+  place-items: center;
   width: 36px;
+  height: 36px;
   border: 1px solid var(--line);
   border-radius: 50%;
   background: #fff;
+  color: var(--accent);
+  cursor: pointer;
 }
 .carousel-arrow:hover { background: #e9f0e5; border-color: var(--accent); }
 .carousel-arrow-prev { inset-inline-start: 4px; }

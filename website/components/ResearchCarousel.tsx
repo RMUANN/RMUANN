@@ -6,7 +6,7 @@ import { ui } from "@/content/ui";
 import type { Locale, Publication } from "@/content/site";
 
 const motionPreference = "(prefers-reduced-motion: reduce)";
-const rotationInterval = 3000;
+const rotationInterval = 2000;
 
 function subscribeToMotionPreference(onChange: () => void) {
   const media = window.matchMedia(motionPreference);
@@ -19,7 +19,6 @@ type Slide = NonNullable<Publication["image"]>;
 export default function ResearchCarousel({ slides, locale }: { slides: Slide[]; locale: Locale }) {
   const labels = ui[locale].carousel;
   const [active, setActive] = useState(0);
-  const [playing, setPlaying] = useState(true);
   const [hovered, setHovered] = useState(false);
   const [imageFocused, setImageFocused] = useState(false);
   const reducedMotion = useSyncExternalStore(
@@ -27,20 +26,19 @@ export default function ResearchCarousel({ slides, locale }: { slides: Slide[]; 
     () => window.matchMedia(motionPreference).matches,
     () => false,
   );
-  const rotating = playing && !reducedMotion && slides.length > 1;
+  const rotating = !reducedMotion && slides.length > 1;
 
   function moveSlide(direction: -1 | 1) {
-    setPlaying(false);
     setActive((index) => (index + direction + slides.length) % slides.length);
   }
 
   useEffect(() => {
     if (!rotating || hovered || imageFocused) return;
     const timer = window.setInterval(() => {
-      if (!document.hidden) setActive((index) => (index + 1) % slides.length);
+      if (!document.hidden) setActive((active + 1) % slides.length);
     }, rotationInterval);
     return () => window.clearInterval(timer);
-  }, [rotating, hovered, imageFocused, slides.length]);
+  }, [active, rotating, hovered, imageFocused, slides.length]);
 
   return <div className="research-carousel" role="group" aria-label={labels.label}>
     <div className="carousel-stage" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
@@ -60,18 +58,5 @@ export default function ResearchCarousel({ slides, locale }: { slides: Slide[]; 
           aria-label={labels.next} onClick={() => moveSlide(1)} />
       </>}
     </div>
-    {slides.length > 1 && <div className="carousel-controls">
-      {slides.map(({ src }, index) => (
-        <button type="button" className="carousel-dot" key={src} aria-label={labels.slide + " " + (index + 1)}
-          aria-current={index === active ? "true" : undefined} onClick={() => {
-            setPlaying(false);
-            setActive(index);
-          }} />
-      ))}
-      {!reducedMotion && <button type="button" className="carousel-toggle"
-        aria-label={playing ? labels.pause : labels.play} onClick={() => setPlaying(!playing)}>
-        <span aria-hidden="true">{playing ? "Ⅱ" : "▶"}</span>
-      </button>}
-    </div>}
   </div>;
 }
