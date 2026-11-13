@@ -52,6 +52,7 @@ const vcapTitle = "vCapTouch: Interactive Touch Sensing Data Synthesis for Hand 
 const vcapAuthors = "Chengshuo Xia, Qingyuan Peng, Zeyuan Fan, Tian Min, Daxing Zhang, Congsi Wang";
 const attributeTitle = "Optimizing Attribute Reduction in Multi-Granularity Data through a Hybrid Supervised–Unsupervised Model";
 const figures = {
+  traceMotion: { src: "/papers/tracemotion.webp", width: 1360, height: 421 },
   comotion: { src: "/papers/comotion.webp", width: 1360, height: 502 },
   demo: { src: "/papers/comotion-demo.webp", width: 1360, height: 822 },
   sandtouch: { src: "/papers/sandtouch.webp", width: 1361, height: 567 },
@@ -81,7 +82,7 @@ export const site: Record<Locale, SiteContent> = {
       { title: "Agent-assisted interaction", description: "Explore how agents infer intent and provide context-sensitive guidance in creative and task-oriented workflows." },
     ],
     publications: [
-      { title: traceMotionTitle, rank: "CCF A", venue: "CHI", year: 2026, status: "Major Revision 🙏🙏🙏", role: "First author" },
+      { title: traceMotionTitle, rank: "CCF A", venue: "CHI", year: 2026, status: "Major Revision 🙏🙏🙏", role: "First author", description: "Stylus input helps users rewrite a motion prompt and refine the corresponding part of the generated motion.", image: { ...figures.traceMotion, alt: "TraceMotion workspace for rewriting a prompt, sketching a trajectory, and inspecting revised motion" } },
       { title: comotionTitle, rank: "CCF B", venue: "ISS", year: 2026, status: "Accepted", role: "First author", description: "A text-to-motion system with adjustable action-level controls and a study of how people use them.", projectSlug: "comotion", image: { ...figures.comotion, alt: "CoMotion workflow from a text prompt to action-level adjustment of the generated motion" } },
       { title: demoTitle, rank: "CCF A", venue: "UbiComp / ISWC Demo", year: 2026, status: "Accepted", role: "First author", description: "A hands-on demonstration of semantic steering, visual comparison, and saving generated motions.", projectSlug: "comotion", image: { ...figures.demo, alt: "CoMotion Demo interaction steps for adjusting and comparing generated motions" } },
       { title: sandtouchTitle, rank: "CCF A", venue: "CHI", year: 2025, status: "Accepted", role: "Second student author", authors: sandtouchAuthors, description: "A VR sand painting system combining hand gestures, realistic sound, and contextual AI guidance.", projectSlug: "sandtouch", href: sandtouchDoi, image: { ...figures.sandtouch, alt: "SandTouch virtual reality setup, hand gestures, and AI guidance during sand painting" } },
@@ -156,7 +157,7 @@ export const site: Record<Locale, SiteContent> = {
       { title: "智能体辅助交互", description: "探索智能体如何在创作和任务流程中识别意图，并根据上下文提供引导。" },
     ],
     publications: [
-      { title: traceMotionTitle, rank: "CCF A", venue: "CHI", year: 2026, status: "大修中🙏🙏🙏", role: "第一作者" },
+      { title: traceMotionTitle, rank: "CCF A", venue: "CHI", year: 2026, status: "大修中🙏🙏🙏", role: "第一作者", description: "用手写笔辅助改写动作提示词，并细调生成动作的对应片段。", image: { ...figures.traceMotion, alt: "TraceMotion 的提示词改写、轨迹绘制和动作预览界面" } },
       { title: comotionTitle, rank: "CCF B", venue: "ISS", year: 2026, status: "已录用", role: "第一作者", description: "介绍具有动作级调节功能的文本到动作生成系统，并研究用户如何使用这些控件。", projectSlug: "comotion", image: { ...figures.comotion, alt: "CoMotion 从输入文本到按动作调整生成结果的流程" } },
       { title: demoTitle, rank: "CCF A", venue: "UbiComp / ISWC Demo", year: 2026, status: "已录用", role: "第一作者", description: "演示如何调节动作语义、对比生成结果和保存动作。", projectSlug: "comotion", image: { ...figures.demo, alt: "CoMotion Demo 中调节和比较生成动作的交互步骤" } },
       { title: sandtouchTitle, rank: "CCF A", venue: "CHI", year: 2025, status: "已录用", role: "学生第二作者", authors: sandtouchAuthors, description: "结合手势、拟真声音与上下文 AI 引导的 VR 沙画系统。", projectSlug: "sandtouch", href: sandtouchDoi, image: { ...figures.sandtouch, alt: "SandTouch 的虚拟现实设备、沙画手势与 AI 创作引导" } },

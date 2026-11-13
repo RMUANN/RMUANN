@@ -27,7 +27,7 @@ for (const locale of locales) {
       assert.ok(known.has(href), "unknown internal route " + href);
     }
     assert.doesNotMatch(page, /private-references|\/data\/|@163\.com/i);
-    if (!preview) assert.doesNotMatch(page, /research-preview\.json|tracemotion\.webp|data:image\/webp;base64,/i);
+    if (!preview) assert.doesNotMatch(page, /research-preview\.json|data:image\/webp;base64,/i);
     if (route === "research/" || route === "publications/") {
       assert.ok(page.indexOf('id="directions"') >= 0 && page.indexOf('id="directions"') < page.indexOf('id="papers"'));
       const firstPaper = (page.match(/id="papers"[\s\S]*?<li\b[^>]*>([\s\S]*?)<\/li>/)?.[1] ?? "").replaceAll("<!-- -->", "");
@@ -35,7 +35,9 @@ for (const locale of locales) {
       assert.match(firstPaper, /CCF A[\s\S]*?CHI <time dateTime="2026">2026<\/time>/);
       assert.match(firstPaper, locale === "zh" ? /第一作者[\s\S]*?大修中🙏🙏🙏/ : /First author[\s\S]*?Major Revision 🙏🙏🙏/);
       assert.equal([...page.matchAll(/<h3 lang="en">TraceMotion:/g)].length, 1);
-      if (preview) assert.match(firstPaper, /data:image\/webp;base64,/);
+      assert.match(firstPaper, locale === "zh" ? /用手写笔辅助改写动作提示词，并细调生成动作的对应片段。/ : /Stylus input helps users rewrite a motion prompt and refine the corresponding part of the generated motion\./);
+      const traceMotionImage = preview ? "data:image/webp;base64," : basePath + "/papers/tracemotion.webp";
+      assert.ok(firstPaper.includes('src="' + traceMotionImage));
       for (const figure of ["comotion", "comotion-demo", "sandtouch"]) {
         assert.ok(page.includes('src="' + basePath + '/papers/' + figure + '.webp"'));
       }
