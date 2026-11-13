@@ -1,63 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 <url>
 <loc>https://rmuann.github.io/RMUANN/en/</loc>
-</url>
-<url>
-<loc>https://rmuann.github.io/RMUANN/en/about/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/en/research/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/research/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/research/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/research/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/en/projects/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/projects/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/projects/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/projects/" />
 </url>
 <url>
-<loc>https://rmuann.github.io/RMUANN/en/experience/</loc>
-</url>
-<url>
-<loc>https://rmuann.github.io/RMUANN/en/contact/</loc>
+<loc>https://rmuann.github.io/RMUANN/en/about/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/about/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/about/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/about/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/en/projects/comotion/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/projects/comotion/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/projects/comotion/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/projects/comotion/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/en/projects/sandtouch/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/projects/sandtouch/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/projects/sandtouch/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/projects/sandtouch/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/en/projects/agent-intent-routing/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/projects/agent-intent-routing/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/projects/agent-intent-routing/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/projects/agent-intent-routing/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/en/projects/go-backend-services/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/projects/go-backend-services/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/projects/go-backend-services/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/projects/go-backend-services/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/zh/</loc>
-</url>
-<url>
-<loc>https://rmuann.github.io/RMUANN/zh/about/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/zh/research/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/research/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/research/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/research/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/zh/projects/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/projects/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/projects/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/projects/" />
 </url>
 <url>
-<loc>https://rmuann.github.io/RMUANN/zh/experience/</loc>
-</url>
-<url>
-<loc>https://rmuann.github.io/RMUANN/zh/contact/</loc>
+<loc>https://rmuann.github.io/RMUANN/zh/about/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/about/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/about/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/about/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/zh/projects/comotion/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/projects/comotion/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/projects/comotion/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/projects/comotion/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/zh/projects/sandtouch/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/projects/sandtouch/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/projects/sandtouch/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/projects/sandtouch/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/zh/projects/agent-intent-routing/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/projects/agent-intent-routing/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/projects/agent-intent-routing/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/projects/agent-intent-routing/" />
 </url>
 <url>
 <loc>https://rmuann.github.io/RMUANN/zh/projects/go-backend-services/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://rmuann.github.io/RMUANN/en/projects/go-backend-services/" />
+<xhtml:link rel="alternate" hreflang="zh-Hans" href="https://rmuann.github.io/RMUANN/zh/projects/go-backend-services/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://rmuann.github.io/RMUANN/en/projects/go-backend-services/" />
 </url>
 </urlset>

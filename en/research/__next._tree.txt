@@ -1,5 +1,5 @@
-:HL["/RMUANN/_next/static/css/03a07a388a6beac1.css","style"]
+:HL["/RMUANN/_next/static/css/54e7534af07abd44.css","style"]
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"segments","t":"oc","k":"research","s":[]},"h":65632,"c":"$Q3"}]]
 1:[["children",{"s":{"n":"locale","t":"d","k":"en","s":["_not-found","_global-error","robots.txt","sitemap.xml"]},"h":196720,"c":"$Q2"}]]
-0:{"b":"Urh6Ir8M3p6Oqfd179P7I","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}
+0:{"b":"MdI3Re5ngE4grn8YF3jF7","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}
