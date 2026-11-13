@@ -107,19 +107,8 @@ Docker · Git · Prometheus · Grafana · Jaeger · OpenTelemetry · Kubernetes
 
 ## 04 / GitHub Activity
 
-<div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=RMUANN&show_icons=true&hide_border=true&bg_color=F5F4EF&title_color=34483F&text_color=58635D&icon_color=789889&rank_icon=github" alt="GitHub Statistics" />
-
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=RMUANN&layout=compact&langs_count=6&hide_border=true&bg_color=F5F4EF&title_color=34483F&text_color=58635D" alt="Top Languages" />
-
-</div>
-
-<div align="center">
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=RMUANN&bg_color=F5F4EF&color=34483F&line=789889&point=34483F&area=true&hide_border=true" width="96%" alt="GitHub Contribution Activity" />
-
-</div>
+- [View my contribution graph and recent activity](https://github.com/RMUANN)
+- [Browse my repositories and their primary languages](https://github.com/RMUANN?tab=repositories)
 
 ---
 
