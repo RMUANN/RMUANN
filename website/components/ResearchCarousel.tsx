@@ -6,7 +6,7 @@ import { ui } from "@/content/ui";
 import type { Locale, Publication } from "@/content/site";
 
 const motionPreference = "(prefers-reduced-motion: reduce)";
-const rotationInterval = 6000;
+const rotationInterval = 3000;
 
 function subscribeToMotionPreference(onChange: () => void) {
   const media = window.matchMedia(motionPreference);
@@ -29,6 +29,11 @@ export default function ResearchCarousel({ slides, locale }: { slides: Slide[]; 
   );
   const rotating = playing && !reducedMotion && slides.length > 1;
 
+  function moveSlide(direction: -1 | 1) {
+    setPlaying(false);
+    setActive((index) => (index + direction + slides.length) % slides.length);
+  }
+
   useEffect(() => {
     if (!rotating || hovered || imageFocused) return;
     const timer = window.setInterval(() => {
@@ -48,6 +53,12 @@ export default function ResearchCarousel({ slides, locale }: { slides: Slide[]; 
             loading={index === 0 ? "eager" : "lazy"} />
         </a>
       ))}
+      {slides.length > 1 && <>
+        <button type="button" className="carousel-arrow carousel-arrow-prev"
+          aria-label={labels.previous} onClick={() => moveSlide(-1)} />
+        <button type="button" className="carousel-arrow carousel-arrow-next"
+          aria-label={labels.next} onClick={() => moveSlide(1)} />
+      </>}
     </div>
     {slides.length > 1 && <div className="carousel-controls">
       {slides.map(({ src }, index) => (
