@@ -103,12 +103,6 @@ MySQL · TiDB · Redis · Kafka · Elasticsearch · Canal
 
 Docker · Git · Prometheus · Grafana · Jaeger · OpenTelemetry · Kubernetes
 
----
-
-## 04 / GitHub Activity
-
-- [View my contribution graph and recent activity](https://github.com/RMUANN)
-- [Browse my repositories and their primary languages](https://github.com/RMUANN?tab=repositories)
 
 ---
 
