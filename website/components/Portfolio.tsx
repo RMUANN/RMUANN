@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MotionStudy from "@/components/MotionStudy";
 import ProjectCover from "@/components/ProjectCover";
+import { engineeringDirections, engineeringHero, familiarity } from "@/content/engineering";
 import { site } from "@/content/site";
 import { ui } from "@/content/ui";
 import { publicPath } from "@/lib/origin";
@@ -23,15 +24,14 @@ function Band({ title, link, children }: { title: string; link?: { href: string;
   </section>;
 }
 
-function Projects({ projects, locale, standalone = false }: { projects: Project[]; locale: Locale; standalone?: boolean }) {
-  const Heading = standalone ? "h2" : "h3";
+function Projects({ projects, locale }: { projects: Project[]; locale: Locale }) {
   return <div className="project-grid">{projects.map((item) => (
     <article className="project-card" key={item.slug}>
       <Link href={pageHref(locale, "projects", item.slug)}>
         <ProjectCover slug={item.slug} />
         <div className="project-copy">
           <p className="eyebrow">{item.category}</p>
-          <div className="card-heading"><Heading>{item.title}</Heading><span aria-hidden="true">↗</span></div>
+          <div className="card-heading"><h3>{item.title}</h3><span aria-hidden="true">↗</span></div>
           <p>{item.description}</p>
         </div>
       </Link>
@@ -126,7 +126,45 @@ function PageHead({ title, description, children }: { title: string; description
   return <header className="page-head">{children}<h1>{title}</h1><p className="lede">{description}</p></header>;
 }
 
+function EngineeringPractice({ locale }: { locale: Locale }) {
+  return <>
+    <header className="page-head engineering-head">
+      <h1>{site[locale].pages.projects.title}</h1>
+      <p className="subtitle">{engineeringHero.subtitle[locale]}</p>
+      <p className="lede">{site[locale].pages.projects.description}</p>
+    </header>
+    <div className="page-body engineering-directions">
+      {engineeringDirections.map(({ id, title, subtitle, description, groups }) => (
+        <section className="engineering-direction" key={id} aria-labelledby={id}>
+          <header className="engineering-direction-head">
+            <h2 className="section-title" id={id}>{title[locale]}</h2>
+            <p className="engineering-subtitle">{subtitle[locale]}</p>
+          </header>
+          <div className="engineering-groups">
+            {groups.map((group) => (
+              <div className="engineering-group" key={group.title.en}>
+                <h3>{group.title[locale]}</h3>
+                {group.description && <p>{group.description[locale]}</p>}
+                <ul className="engineering-tags" lang="en" role="list">
+                  {group.technologies.map((technology) => <li key={technology}>{technology}</li>)}
+                  {group.familiarWith?.map((technology) => (
+                    <li key={technology}>
+                      {technology} <span className="engineering-familiarity" lang={locale === "zh" ? "zh-Hans" : "en"}>{familiarity[locale]}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="engineering-summary">{description[locale]}</p>
+        </section>
+      ))}
+    </div>
+  </>;
+}
+
 export function SectionPage({ locale, page, preview = [] }: { locale: Locale; page: PageKey; preview?: Publication[] }) {
+  if (page === "projects") return <EngineeringPractice locale={locale} />;
   const copy = site[locale];
   const labels = ui[locale];
   const research = page === "research" || page === "publications";
@@ -149,7 +187,6 @@ export function SectionPage({ locale, page, preview = [] }: { locale: Locale; pa
           <Papers papers={[...preview, ...copy.publications.filter((paper) => !preview.some((entry) => entry.title === paper.title))]} />
         </section>
       </div>}
-      {page === "projects" && <Projects projects={copy.projects.filter(({ slug }) => !isResearchProject(slug))} locale={locale} standalone />}
       {page === "experience" && <Experience copy={copy} locale={locale} standalone />}
       {page === "contact" && <Contact copy={copy} />}
     </div>

@@ -1,3 +1,5 @@
+import { engineeringHero } from "./engineering.ts";
+
 export const locales = ["en", "zh"] as const;
 export type Locale = (typeof locales)[number];
 export type PageKey = "about" | "research" | "publications" | "projects" | "experience" | "contact";
@@ -70,7 +72,7 @@ export const site: Record<Locale, SiteContent> = {
       about: { title: "About", description: "My work spans human–computer interaction, generative motion, and AI engineering." },
       research: { title: "Research & Publications", description: "How can people express what they want from a generative system, adjust its behavior, and judge the result?" },
       publications: { title: "Publications", description: "Peer-reviewed work on controllable text-to-motion generation and virtual sand art." },
-      projects: { title: "Engineering Practice", description: "Selected engineering work in AI agents and backend services." },
+      projects: { title: "Engineering Practice", description: engineeringHero.description.en },
       experience: { title: "Experience", description: "Hands-on work in backend systems and AI agents." },
       contact: { title: "Contact", description: "Find me on GitHub for research and engineering collaboration." },
     },
@@ -145,7 +147,7 @@ export const site: Record<Locale, SiteContent> = {
       about: { title: "关于", description: "我的工作涉及人机交互、动作生成与 AI 工程。" },
       research: { title: "科研论文", description: "人如何向生成式系统表达意图、调整生成过程，并判断结果是否符合预期？" },
       publications: { title: "论文", description: "关于可控文本到动作生成与虚拟沙画的同行评审成果。" },
-      projects: { title: "工程实践", description: "智能体与后端服务的工程案例。" },
+      projects: { title: "工程实践", description: engineeringHero.description.zh },
       experience: { title: "经历", description: "后端系统与智能体开发实践。" },
       contact: { title: "联系", description: "欢迎通过 GitHub 交流科研和工程合作。" },
     },

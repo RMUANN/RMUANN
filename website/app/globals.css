@@ -135,7 +135,23 @@ img, svg { max-width: 100%; }
   .button, .project-card, .language { transition: background-color .18s ease, border-color .18s ease; }
 }
 
-.project-copy h2 { font: 400 2rem/1.12 var(--serif); letter-spacing: -.04em; margin: 5px 0 9px; }
+.engineering-head .lede { margin-top: 0; }
+.engineering-directions { display: grid; gap: clamp(20px, 3vw, 36px); }
+.engineering-direction { --panel-accent: var(--accent); border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+.engineering-direction + .engineering-direction { --panel-accent: #4d5d75; }
+.engineering-direction-head { padding: clamp(18px, 3.2vw, 38px); border-inline-start: 4px solid var(--panel-accent); background: color-mix(in srgb, var(--panel-accent) 8%, var(--canvas)); }
+.engineering-subtitle { margin: 9px 0 0; color: var(--panel-accent); font-size: .92rem; font-weight: 650; }
+.engineering-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.8vw, 32px); padding: clamp(18px, 3.2vw, 38px); }
+.engineering-group { border-top: 1px solid var(--line); padding-top: 12px; }
+.engineering-group h3 { margin: 0 0 8px; font-size: 1rem; font-weight: 650; }
+.engineering-group p { margin: 0 0 12px; color: var(--muted); font-size: .9rem; }
+.engineering-tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; padding: 0; list-style: none; }
+.engineering-tags li { padding: 3px 9px; border: 1px solid var(--line); border-radius: 5px; font-size: .82rem; overflow-wrap: anywhere; }
+.engineering-familiarity { margin-inline-start: .2em; color: var(--muted); font-size: .74rem; }
+.engineering-summary { margin: 0; padding: clamp(15px, 2.6vw, 26px) clamp(18px, 3.2vw, 38px); border-top: 1px solid var(--line); color: var(--muted); }
+@media (max-width: 680px) {
+  .engineering-groups { grid-template-columns: minmax(0, 1fr); }
+}
 .about-intro { margin-bottom: 30px; }
 .experience-list > h2, .experience-list > h3 { margin: 0 0 12px; font: 400 1.55rem/1.24 var(--serif); }
 .timeline h4 { font: 400 1.2rem/1.25 var(--serif); margin: 4px 0; }
