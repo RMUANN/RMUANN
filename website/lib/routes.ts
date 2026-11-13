@@ -13,3 +13,7 @@ export function isPageKey(value: string): value is PageKey {
 export function pageHref(locale: Locale, page?: PageKey, slug?: string) {
   return "/" + [locale, page, slug].filter(Boolean).join("/") + "/";
 }
+
+export function isResearchProject(slug?: string) {
+  return slug === "comotion" || slug === "sandtouch";
+}

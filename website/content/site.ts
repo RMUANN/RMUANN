@@ -7,12 +7,16 @@ interface Summary {
   description: string;
 }
 
-interface Publication extends Summary {
-  venue: string;
-  status: string;
+export interface Publication extends Summary {
+  rank: string;
+  venue?: string;
+  year?: number;
+  status?: string;
+  role?: string;
   authors?: string;
   href?: string;
-  projectSlug: string;
+  projectSlug?: string;
+  image?: { src: string; width: number; height: number; alt: string };
 }
 
 interface Project extends Summary {
@@ -32,7 +36,6 @@ interface SiteContent {
   themes: Summary[];
   publications: Publication[];
   projects: Project[];
-  education: { institution: string; degree: string; description: string; period?: string }[];
   engineering: Summary[];
   contact: { label: string; href: string }[];
 }
@@ -42,6 +45,14 @@ const demoTitle = "CoMotion Demo: Demonstrating User-Driven Semantic Steering in
 const sandtouchTitle = "SandTouch: Empowering Virtual Sand Art in VR with AI Guidance and Emotional Relief";
 const sandtouchAuthors = "Long Liu, Junbin Ren, Zeyuan Fan, Chenhui Li, Gaoqi He, Changbo Wang, Yang Gao, Chen Li";
 const sandtouchDoi = "https://doi.org/10.1145/3706598.3714275";
+const vcapTitle = "vCapTouch: Interactive Touch Sensing Data Synthesis for Hand Gesture Recognition Based on Digital Twin";
+const vcapAuthors = "Chengshuo Xia, Qingyuan Peng, Zeyuan Fan, Tian Min, Daxing Zhang, Congsi Wang";
+const attributeTitle = "Optimizing Attribute Reduction in Multi-Granularity Data through a Hybrid Supervised–Unsupervised Model";
+const figures = {
+  comotion: { src: "/papers/comotion.webp", width: 1360, height: 502 },
+  demo: { src: "/papers/comotion-demo.webp", width: 1360, height: 822 },
+  sandtouch: { src: "/papers/sandtouch.webp", width: 1361, height: 567 },
+};
 const github = { label: "GitHub", href: "https://github.com/RMUANN" };
 
 export const site: Record<Locale, SiteContent> = {
@@ -49,27 +60,29 @@ export const site: Record<Locale, SiteContent> = {
     name: "Zeyuan Fan",
     role: "HCI Researcher · AI Engineer",
     tagline: "Interfaces for shaping generated motion",
-    intro: "I’m a master’s student at Xidian University. I study how people steer generative systems and build the interfaces and services that make those interactions possible.",
-    nav: { about: "About", research: "Research", publications: "Publications", projects: "Projects", experience: "Experience", contact: "Contact" },
+    intro: "I study how people steer generative systems and build the interfaces and services that make those interactions possible.",
+    nav: { about: "About", research: "Research & Publications", publications: "Publications", projects: "Engineering Practice", experience: "Experience", contact: "Contact" },
     pages: {
       about: { title: "About", description: "My work spans human–computer interaction, generative motion, and AI engineering." },
-      research: { title: "Research", description: "How can people express what they want from a generative system, adjust its behavior, and judge the result?" },
+      research: { title: "Research & Publications", description: "How can people express what they want from a generative system, adjust its behavior, and judge the result?" },
       publications: { title: "Publications", description: "Peer-reviewed work on controllable text-to-motion generation and virtual sand art." },
-      projects: { title: "Projects", description: "Research systems and engineering work in motion generation, immersive interaction, agents, and backend services." },
-      experience: { title: "Experience", description: "Computer science education and hands-on work in backend systems and AI agents." },
+      projects: { title: "Engineering Practice", description: "Selected engineering work in AI agents and backend services." },
+      experience: { title: "Experience", description: "Hands-on work in backend systems and AI agents." },
       contact: { title: "Contact", description: "Find me on GitHub for research and engineering collaboration." },
     },
     themes: [
       { title: "Controllable text-to-motion", description: "Use language to describe a motion and give people a way to tune its constituent actions." },
       { title: "Interactive motion editing", description: "Make the effect of an edit visible through controls, playback, and side-by-side comparisons." },
-      { title: "Human–AI interaction", description: "Study how people express intent, evaluate generated results, and decide when to intervene." },
+      { title: "Human–computer interaction", description: "Study how people express intent, evaluate generated results, and decide when to intervene." },
       { title: "Immersive creative tools", description: "Use gestures and sound to support hands-on creative work in virtual environments." },
       { title: "Agent-assisted interaction", description: "Explore how agents infer intent and provide context-sensitive guidance in creative and task-oriented workflows." },
     ],
     publications: [
-      { title: comotionTitle, venue: "PACM HCI / ISS 2026", status: "Accepted full paper", description: "A text-to-motion system with adjustable action-level controls and a study of how people use them.", projectSlug: "comotion" },
-      { title: demoTitle, venue: "UbiComp / ISWC 2026 Demo Track", status: "Accepted as short paper", authors: "Zeyuan Fan, Chengshuo Xia", description: "A hands-on demonstration of semantic steering, visual comparison, and saving generated motions.", projectSlug: "comotion" },
-      { title: sandtouchTitle, venue: "ACM CHI 2025", status: "Published", authors: sandtouchAuthors, description: "A VR sand painting system combining hand gestures, realistic sound, and contextual AI guidance.", projectSlug: "sandtouch", href: sandtouchDoi },
+      { title: comotionTitle, rank: "CCF B", venue: "ISS", year: 2026, status: "Accepted", role: "First author", description: "A text-to-motion system with adjustable action-level controls and a study of how people use them.", projectSlug: "comotion", image: { ...figures.comotion, alt: "CoMotion workflow from a text prompt to action-level adjustment of the generated motion" } },
+      { title: demoTitle, rank: "CCF A", venue: "UbiComp / ISWC Demo", year: 2026, status: "Accepted", role: "First author", description: "A hands-on demonstration of semantic steering, visual comparison, and saving generated motions.", projectSlug: "comotion", image: { ...figures.demo, alt: "CoMotion Demo interaction steps for adjusting and comparing generated motions" } },
+      { title: sandtouchTitle, rank: "CCF A", venue: "CHI", year: 2025, status: "Accepted", role: "Second student author", authors: sandtouchAuthors, description: "A VR sand painting system combining hand gestures, realistic sound, and contextual AI guidance.", projectSlug: "sandtouch", href: sandtouchDoi, image: { ...figures.sandtouch, alt: "SandTouch virtual reality setup, hand gestures, and AI guidance during sand painting" } },
+      { title: vcapTitle, rank: "SCI Q2", venue: "IEEE Internet of Things Journal", year: 2025, status: "Accepted", role: "Second student author", authors: vcapAuthors, description: "A digital twin for synthesizing touch sensing data for hand gesture recognition.", href: "https://doi.org/10.1109/JIOT.2025.3553561" },
+      { title: attributeTitle, rank: "SCI Q3", venue: "Mathematics", year: 2024, status: "Accepted", role: "First author", description: "A hybrid supervised and unsupervised model for attribute reduction in multi-granularity data.", href: "https://doi.org/10.3390/math12101434" },
     ],
     projects: [
       {
@@ -111,10 +124,6 @@ export const site: Record<Locale, SiteContent> = {
         ],
       },
     ],
-    education: [
-      { institution: "Xidian University", degree: "Master’s in Computer Technology", period: "Sep 2025 – Jun 2028 (expected)", description: "Graduate study in computer technology." },
-      { institution: "Jiangsu University of Science and Technology", degree: "Bachelor’s in Computer Science and Technology", period: "Sep 2021 – Jun 2025", description: "Undergraduate study in computer science and technology." },
-    ],
     engineering: [
       { title: "AI Agent Development", description: "Multi-path intent recognition, agent routing, RAG with ChromaDB, and evaluation." },
       { title: "Backend Development", description: "Go and Kratos microservices, Protobuf, Wire, Redis, Kafka, and observability." },
@@ -125,27 +134,29 @@ export const site: Record<Locale, SiteContent> = {
     name: "范泽远",
     role: "人机交互研究者 · AI 工程师",
     tagline: "为可控的动作生成设计交互界面",
-    intro: "我是西安电子科技大学的硕士研究生。我研究人如何引导生成式系统，并开发支撑这些交互的界面与服务。",
-    nav: { about: "关于", research: "研究", publications: "论文", projects: "项目", experience: "经历", contact: "联系" },
+    intro: "我研究人如何引导生成式系统，并开发支撑这些交互的界面与服务。",
+    nav: { about: "关于", research: "科研论文", publications: "论文", projects: "工程实践", experience: "经历", contact: "联系" },
     pages: {
       about: { title: "关于", description: "我的工作涉及人机交互、动作生成与 AI 工程。" },
-      research: { title: "研究", description: "人如何向生成式系统表达意图、调整生成过程，并判断结果是否符合预期？" },
+      research: { title: "科研论文", description: "人如何向生成式系统表达意图、调整生成过程，并判断结果是否符合预期？" },
       publications: { title: "论文", description: "关于可控文本到动作生成与虚拟沙画的同行评审成果。" },
-      projects: { title: "项目", description: "动作生成、沉浸式交互、智能体与后端服务的研究和工程案例。" },
-      experience: { title: "经历", description: "计算机专业教育背景，以及后端系统与智能体开发实践。" },
+      projects: { title: "工程实践", description: "智能体与后端服务的工程案例。" },
+      experience: { title: "经历", description: "后端系统与智能体开发实践。" },
       contact: { title: "联系", description: "欢迎通过 GitHub 交流科研和工程合作。" },
     },
     themes: [
       { title: "可控文本到动作生成", description: "用自然语言描述动作，并让用户能够调整其中各个动作的表现。" },
       { title: "交互式动作编辑", description: "通过调节控件、播放和并列比较，让用户看到编辑带来的变化。" },
-      { title: "人智交互", description: "研究用户如何表达意图、判断生成结果并选择介入时机。" },
+      { title: "人机交互", description: "研究用户如何表达意图、判断生成结果并选择介入时机。" },
       { title: "沉浸式创作工具", description: "用手势和声音支持虚拟环境中的动手创作。" },
       { title: "智能体辅助交互", description: "探索智能体如何在创作和任务流程中识别意图，并根据上下文提供引导。" },
     ],
     publications: [
-      { title: comotionTitle, venue: "PACM HCI / ISS 2026", status: "长文已录用", description: "介绍具有动作级调节功能的文本到动作生成系统，并研究用户如何使用这些控件。", projectSlug: "comotion" },
-      { title: demoTitle, venue: "UbiComp / ISWC 2026 Demo 轨道", status: "以短文形式录用", authors: "Zeyuan Fan, Chengshuo Xia", description: "演示如何调节动作语义、对比生成结果和保存动作。", projectSlug: "comotion" },
-      { title: sandtouchTitle, venue: "ACM CHI 2025", status: "已发表", authors: sandtouchAuthors, description: "结合手势、拟真声音与上下文 AI 引导的 VR 沙画系统。", projectSlug: "sandtouch", href: sandtouchDoi },
+      { title: comotionTitle, rank: "CCF B", venue: "ISS", year: 2026, status: "已录用", role: "第一作者", description: "介绍具有动作级调节功能的文本到动作生成系统，并研究用户如何使用这些控件。", projectSlug: "comotion", image: { ...figures.comotion, alt: "CoMotion 从输入文本到按动作调整生成结果的流程" } },
+      { title: demoTitle, rank: "CCF A", venue: "UbiComp / ISWC Demo", year: 2026, status: "已录用", role: "第一作者", description: "演示如何调节动作语义、对比生成结果和保存动作。", projectSlug: "comotion", image: { ...figures.demo, alt: "CoMotion Demo 中调节和比较生成动作的交互步骤" } },
+      { title: sandtouchTitle, rank: "CCF A", venue: "CHI", year: 2025, status: "已录用", role: "学生第二作者", authors: sandtouchAuthors, description: "结合手势、拟真声音与上下文 AI 引导的 VR 沙画系统。", projectSlug: "sandtouch", href: sandtouchDoi, image: { ...figures.sandtouch, alt: "SandTouch 的虚拟现实设备、沙画手势与 AI 创作引导" } },
+      { title: vcapTitle, rank: "SCI 二区", venue: "IEEE Internet of Things Journal", year: 2025, status: "已录用", role: "学生第二作者", authors: vcapAuthors, description: "通过数字孪生合成触觉传感数据，用于手势识别。", href: "https://doi.org/10.1109/JIOT.2025.3553561" },
+      { title: attributeTitle, rank: "SCI 三区", venue: "Mathematics", year: 2024, status: "已录用", role: "第一作者", description: "将监督与无监督方法结合，用于多粒度数据的属性约简。", href: "https://doi.org/10.3390/math12101434" },
     ],
     projects: [
       {
@@ -186,10 +197,6 @@ export const site: Record<Locale, SiteContent> = {
           { title: "可观测性", body: "我检查了 Gin 中间件与服务框架间的上下文传递，以及从 HTTP 到数据库调用的追踪连续性，并将日志、指标和 OpenTelemetry 链路接入服务。" },
         ],
       },
-    ],
-    education: [
-      { institution: "西安电子科技大学", degree: "计算机技术硕士", period: "2025.09 – 预计 2028.06", description: "计算机技术方向硕士研究生。" },
-      { institution: "江苏科技大学", degree: "计算机科学与技术本科", period: "2021.09 – 2025.06", description: "计算机科学与技术专业本科。" },
     ],
     engineering: [
       { title: "智能体开发", description: "多路意图识别、智能体路由、基于 ChromaDB 的检索增强生成与评测。" },

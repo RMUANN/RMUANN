@@ -34,3 +34,7 @@ Check `/en/`, `/zh/`, `/sitemap.xml`, `/robots.txt`, and both versions of a proj
 ## Deploying on GitHub Pages
 
 Build and run `npm run verify:export` with `SITE_URL=https://rmuann.github.io` and `SITE_BASE_PATH=/RMUANN`. Publish the contents of `out/` at the root of the `gh-pages` branch with an empty `.nojekyll` file. Select that branch and its root folder as the GitHub Pages publishing source. Commit updates to that branch on top of its current head. Keep source changes on `main`.
+
+## Reviewing unpublished papers locally
+
+For a local review of unpublished papers, run `$env:RESEARCH_PREVIEW='1'; npm.cmd run dev -- --hostname 127.0.0.1` in PowerShell from this directory. Preview content comes from the ignored `../data/research-preview.json` and its companion images. Do not set this flag in a public build.

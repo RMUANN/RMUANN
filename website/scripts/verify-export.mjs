@@ -6,6 +6,7 @@ const details = ["comotion", "sandtouch", "agent-intent-routing", "go-backend-se
 const routes = pages.concat(details.map((slug) => "projects/" + slug + "/"));
 const locales = ["en", "zh"];
 const basePath = process.env.SITE_BASE_PATH || "";
+const preview = process.env.RESEARCH_PREVIEW === "1";
 
 async function html(path) {
   return readFile(new URL("../out/" + path + "index.html", import.meta.url), "utf8");
@@ -26,6 +27,14 @@ for (const locale of locales) {
       assert.ok(known.has(href), "unknown internal route " + href);
     }
     assert.doesNotMatch(page, /private-references|\/data\/|@163\.com/i);
+    if (!preview) assert.doesNotMatch(page, /TraceMotion|research-preview\.json/);
+    if (route === "research/" || route === "publications/") {
+      assert.ok(page.indexOf('id="directions"') >= 0 && page.indexOf('id="directions"') < page.indexOf('id="papers"'));
+      if (preview) assert.match(page, /id="papers"[\s\S]*?<h3 lang="en">TraceMotion:/);
+      for (const figure of ["comotion", "comotion-demo", "sandtouch"]) {
+        assert.ok(page.includes('src="' + basePath + '/papers/' + figure + '.webp"'));
+      }
+    }
   }
 }
 
@@ -33,7 +42,8 @@ const out = (path) => new URL("../out/" + path, import.meta.url);
 assert.match(await readFile(out("robots.txt"), "utf8"), /User-Agent: \*/i);
 const sitemap = await readFile(out("sitemap.xml"), "utf8");
 if (sitemap.includes("<loc>")) {
-  assert.equal([...sitemap.matchAll(/<loc>/g)].length, routes.length * locales.length);
+  assert.equal([...sitemap.matchAll(/<loc>/g)].length, (routes.length - 1) * locales.length);
+  assert.doesNotMatch(sitemap, /\/publications\//);
 }
 assert.ok((await readFile(out("social-card.png"))).length > 0);
 console.log("Verified " + (routes.length * locales.length + 1) + " exported pages, localized links, and metadata assets.");

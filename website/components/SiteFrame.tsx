@@ -2,9 +2,9 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { site } from "@/content/site";
 import { ui } from "@/content/ui";
-import { alternateLocale, pageHref, type Locale, type PageKey } from "@/lib/routes";
+import { alternateLocale, isResearchProject, pageHref, type Locale, type PageKey } from "@/lib/routes";
 
-const navOrder = ["about", "research", "projects", "publications", "experience", "contact"] as const;
+const navOrder = ["about", "research", "projects", "experience", "contact"] as const;
 
 export default function SiteFrame({ locale, page, slug, children }: {
   locale: Locale; page?: PageKey; slug?: string; children: ReactNode;
@@ -12,6 +12,7 @@ export default function SiteFrame({ locale, page, slug, children }: {
   const copy = site[locale];
   const labels = ui[locale];
   const other = alternateLocale(locale);
+  const activePage = page === "publications" || isResearchProject(slug) ? "research" : page;
   return <>
     <a className="skip" href="#main">{labels.skip}</a>
     <header className="site-header">
@@ -25,7 +26,7 @@ export default function SiteFrame({ locale, page, slug, children }: {
           {copy.name}
         </Link>
         <nav className="nav" aria-label={labels.navigation}>
-          {navOrder.map((item) => <Link key={item} href={pageHref(locale, item)} aria-current={page === item ? (slug ? "location" : "page") : undefined}>{copy.nav[item]}</Link>)}
+          {navOrder.map((item) => <Link key={item} href={pageHref(locale, item)} aria-current={activePage === item ? (slug || page === "publications" ? "location" : "page") : undefined}>{copy.nav[item]}</Link>)}
         </nav>
         <Link className="language" href={pageHref(other, page, slug)} hrefLang={other === "zh" ? "zh-Hans" : "en"} lang={other === "zh" ? "zh-Hans" : "en"}>{other === "zh" ? "简体中文" : "English"}</Link>
       </div>

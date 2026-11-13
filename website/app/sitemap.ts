@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   if (!origin) return [];
   return locales.flatMap((locale) => [
     { url: origin + publicPath(pageHref(locale)) },
-    ...pageKeys.map((page) => ({ url: origin + publicPath(pageHref(locale, page)) })),
+    ...pageKeys.filter((page) => page !== "publications").map((page) => ({ url: origin + publicPath(pageHref(locale, page)) })),
     ...site[locale].projects.map(({ slug }) => ({ url: origin + publicPath(pageHref(locale, "projects", slug)) })),
   ]);
 }

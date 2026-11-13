@@ -1,10 +1,12 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import MotionStudy from "@/components/MotionStudy";
 import ProjectCover from "@/components/ProjectCover";
 import { site } from "@/content/site";
 import { ui } from "@/content/ui";
-import { pageHref, type Locale, type PageKey } from "@/lib/routes";
+import { publicPath } from "@/lib/origin";
+import { isResearchProject, pageHref, type Locale, type PageKey } from "@/lib/routes";
 
 type Copy = (typeof site)[Locale];
 type Project = Copy["projects"][number];
@@ -37,19 +39,29 @@ function Projects({ projects, locale, standalone = false }: { projects: Project[
   ))}</div>;
 }
 
-function Papers({ papers, locale, standalone = false, related = false }: { papers: Publication[]; locale: Locale; standalone?: boolean; related?: boolean }) {
-  const label = ui[locale];
-  const Heading = standalone ? "h2" : "h3";
+function Papers({ papers, related = false }: { papers: Publication[]; related?: boolean }) {
   return <ul className="paper-list">{papers.map((paper) => (
-    <li key={paper.title}>
-      <p className="paper-meta">{paper.venue} · {paper.status}</p>
-      <Heading lang="en">{paper.title}</Heading>
-      {paper.authors && <p lang="en">{paper.authors}</p>}
-      <p>{paper.description}</p>
-      <div className="paper-links">
-        {!related && <ArrowLink href={pageHref(locale, "projects", paper.projectSlug)}>{label.project}</ArrowLink>}
-        {paper.href && <a className="text-link" href={paper.href}>{label.paper} <span aria-hidden="true">↗</span></a>}
+    <li className={paper.image && !related ? "paper-with-image" : undefined} key={paper.title}>
+      <p className="paper-meta">
+        <span>
+          {paper.rank}{paper.role && <> {paper.role}</>}
+          {paper.status && <> <span className="paper-status">{paper.status}</span></>}
+        </span>
+        <span className="paper-venue">
+          {paper.venue}{paper.year && <>{" "}<time dateTime={String(paper.year)}>{paper.year}</time></>}
+        </span>
+      </p>
+      <div className="paper-copy">
+        <h3 lang="en">{paper.title}</h3>
+        {paper.authors && <p className="paper-authors" lang="en">{paper.authors.split(", ").map((name, i) =>
+          <span key={name}>{i > 0 && ", "}{name === "Zeyuan Fan" ? <strong>{name}</strong> : name}</span>
+        )}</p>}
+        <p>{paper.description}</p>
       </div>
+      {paper.image && !related && <figure className="paper-figure">
+        <Image src={paper.image.src.startsWith("/") ? publicPath(paper.image.src) : paper.image.src}
+          width={paper.image.width} height={paper.image.height} alt={paper.image.alt} unoptimized />
+      </figure>}
     </li>
   ))}</ul>;
 }
@@ -58,18 +70,12 @@ function Experience({ copy, locale, standalone = false }: { copy: Copy; locale: 
   const label = ui[locale];
   const Heading = standalone ? "h2" : "h3";
   const Subheading = standalone ? "h3" : "h4";
-  return <div className="experience-grid">
-    <section><Heading>{label.education}</Heading><ul className="timeline">{copy.education.map((entry) => (
-      <li key={entry.institution}>
-        {entry.period && <p className="paper-meta">{entry.period}</p>}
-        <Subheading>{entry.institution}</Subheading><p>{entry.degree}</p>
-        {standalone && <p>{entry.description}</p>}
-      </li>
-    ))}</ul></section>
-    <section><Heading>{label.engineering}</Heading><ul className="timeline">{copy.engineering.map((entry) => (
+  return <section className="experience-list">
+    <Heading>{label.engineering}</Heading>
+    <ul className="timeline">{copy.engineering.map((entry) => (
       <li key={entry.title}><Subheading>{entry.title}</Subheading><p>{entry.description}</p></li>
-    ))}</ul></section>
-  </div>;
+    ))}</ul>
+  </section>;
 }
 
 function Contact({ copy }: { copy: Copy }) {
@@ -81,8 +87,7 @@ function Contact({ copy }: { copy: Copy }) {
 export function Home({ locale }: { locale: Locale }) {
   const copy = site[locale];
   const labels = ui[locale];
-  const research = copy.projects.filter(({ slug }) => slug === "comotion" || slug === "sandtouch");
-  const engineering = copy.projects.filter((item) => !research.includes(item));
+  const engineering = copy.projects.filter(({ slug }) => !isResearchProject(slug));
   return <>
     <section className="hero">
       <div>
@@ -93,20 +98,16 @@ export function Home({ locale }: { locale: Locale }) {
         <div className="hero-actions">
           <Link className="button primary" href={pageHref(locale, "research")}>{copy.nav.research} <span aria-hidden="true">↗</span></Link>
           <Link className="button secondary" href={pageHref(locale, "projects")}>{copy.nav.projects}</Link>
-          <Link className="button secondary" href={pageHref(locale, "publications")}>{copy.nav.publications}</Link>
           <Link className="button secondary" href={pageHref(locale, "contact")}>{copy.nav.contact}</Link>
         </div>
       </div>
       <MotionStudy locale={locale} />
     </section>
-    <Band title={labels.researchWork} link={{ href: pageHref(locale, "research"), label: labels.allResearch }}>
-      <Projects projects={research} locale={locale} />
+    <Band title={copy.nav.research} link={{ href: pageHref(locale, "research"), label: labels.allResearch }}>
+      <Papers papers={copy.publications.slice(0, 3)} />
     </Band>
-    <Band title={labels.engineeringWork} link={{ href: pageHref(locale, "projects"), label: labels.allProjects }}>
+    <Band title={copy.nav.projects} link={{ href: pageHref(locale, "projects"), label: labels.allProjects }}>
       <Projects projects={engineering} locale={locale} />
-    </Band>
-    <Band title={labels.papers} link={{ href: pageHref(locale, "publications"), label: labels.allPapers }}>
-      <Papers papers={copy.publications} locale={locale} />
     </Band>
     <Band title={labels.about} link={{ href: pageHref(locale, "about"), label: copy.nav.about }}>
       <p className="lede">{copy.pages.about.description}</p>
@@ -125,21 +126,30 @@ function PageHead({ title, description, children }: { title: string; description
   return <header className="page-head">{children}<h1>{title}</h1><p className="lede">{description}</p></header>;
 }
 
-export function SectionPage({ locale, page }: { locale: Locale; page: PageKey }) {
+export function SectionPage({ locale, page, preview = [] }: { locale: Locale; page: PageKey; preview?: Publication[] }) {
   const copy = site[locale];
   const labels = ui[locale];
+  const research = page === "research" || page === "publications";
   return <>
-    <PageHead {...copy.pages[page]} />
+    <PageHead {...copy.pages[research ? "research" : page]} />
     <div className="page-body">
       {page === "about" && <>
         <p className="lede about-intro">{copy.intro}</p>
         <Experience copy={copy} locale={locale} standalone />
       </>}
-      {page === "research" && <div className="reading">{copy.themes.map((theme) => (
-        <section key={theme.title}><h2>{theme.title}</h2><p>{theme.description}</p></section>
-      ))}<ArrowLink href={pageHref(locale, "projects")}>{labels.allProjects}</ArrowLink></div>}
-      {page === "publications" && <Papers papers={copy.publications} locale={locale} standalone />}
-      {page === "projects" && <Projects projects={copy.projects} locale={locale} standalone />}
+      {research && <div className="research-sections">
+        <section aria-labelledby="directions">
+          <h2 id="directions">{labels.directions}</h2>
+          <div className="research-topics">{copy.themes.map((theme) => (
+            <div key={theme.title}><h3>{theme.title}</h3><p>{theme.description}</p></div>
+          ))}</div>
+        </section>
+        <section aria-labelledby="papers">
+          <h2 id="papers">{labels.papers}</h2>
+          <Papers papers={[...preview, ...copy.publications]} />
+        </section>
+      </div>}
+      {page === "projects" && <Projects projects={copy.projects.filter(({ slug }) => !isResearchProject(slug))} locale={locale} standalone />}
       {page === "experience" && <Experience copy={copy} locale={locale} standalone />}
       {page === "contact" && <Contact copy={copy} />}
     </div>
@@ -151,7 +161,7 @@ export function ProjectDetail({ locale, project }: { locale: Locale; project: Pr
   const papers = site[locale].publications.filter((paper) => paper.projectSlug === project.slug);
   return <>
     <PageHead title={project.title} description={project.description}>
-      <ArrowLink href={pageHref(locale, "projects")}>{labels.back}</ArrowLink>
+      <ArrowLink href={pageHref(locale, papers.length ? "research" : "projects")}>{papers.length ? labels.allResearch : labels.allProjects}</ArrowLink>
     </PageHead>
     <div className="page-body project-detail">
       <div className="reading">{project.sections.map((section) => (
@@ -161,6 +171,6 @@ export function ProjectDetail({ locale, project }: { locale: Locale; project: Pr
         {project.slug === "comotion" ? <MotionStudy locale={locale} /> : <figure><ProjectCover slug={project.slug} /></figure>}
       </aside>
     </div>
-    {papers.length > 0 && <Band title={labels.related}><Papers papers={papers} locale={locale} related /></Band>}
+    {papers.length > 0 && <Band title={labels.related}><Papers papers={papers} related /></Band>}
   </>;
 }

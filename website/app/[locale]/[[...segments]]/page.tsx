@@ -4,6 +4,7 @@ import { Home, ProjectDetail, SectionPage } from "@/components/Portfolio";
 import SiteFrame from "@/components/SiteFrame";
 import { locales, site } from "@/content/site";
 import { portfolioMetadata } from "@/lib/metadata";
+import { researchPreview } from "@/lib/research-preview";
 import { isPageKey, pageKeys } from "@/lib/routes";
 
 type Params = Promise<{ locale: string; segments?: string[] }>;
@@ -32,14 +33,16 @@ async function resolve(params: Params) {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { locale, page, slug, project, copy } = await resolve(params);
-  const item = project ?? (page ? copy.pages[page] : undefined);
+  const canonicalPage = page === "publications" ? "research" : page;
+  const item = project ?? (canonicalPage ? copy.pages[canonicalPage] : undefined);
   const title = (item?.title ?? copy.role) + " | " + copy.name;
-  return portfolioMetadata(locale, title, item?.description ?? copy.intro, page, slug);
+  return portfolioMetadata(locale, title, item?.description ?? copy.intro, canonicalPage, slug);
 }
 
 export default async function PortfolioPage({ params }: { params: Params }) {
   const { locale, page, slug, project } = await resolve(params);
+  const preview = page === "research" || page === "publications" ? researchPreview(locale) : undefined;
   return <SiteFrame locale={locale} page={page} slug={slug}>
-    {project ? <ProjectDetail locale={locale} project={project} /> : page ? <SectionPage locale={locale} page={page} /> : <Home locale={locale} />}
+    {project ? <ProjectDetail locale={locale} project={project} /> : page ? <SectionPage locale={locale} page={page} preview={preview} /> : <Home locale={locale} />}
   </SiteFrame>;
 }
