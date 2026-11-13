@@ -1,16 +1,21 @@
 import type { MetadataRoute } from "next";
 import { locales, site } from "@/content/site";
 import { publicPath, siteOrigin } from "@/lib/origin";
-import { pageHref, pageKeys } from "@/lib/routes";
+import { navigationKeys, pageHref, type Locale, type PageKey } from "@/lib/routes";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const origin = siteOrigin();
   if (!origin) return [];
+
+  function entry(locale: Locale, page?: PageKey, slug?: string) {
+    const path = (language: Locale) => origin + publicPath(pageHref(language, page, slug));
+    return { url: path(locale), alternates: { languages: { en: path("en"), "zh-Hans": path("zh"), "x-default": path("en") } } };
+  }
+
   return locales.flatMap((locale) => [
-    { url: origin + publicPath(pageHref(locale)) },
-    ...pageKeys.filter((page) => page !== "publications").map((page) => ({ url: origin + publicPath(pageHref(locale, page)) })),
-    ...site[locale].projects.map(({ slug }) => ({ url: origin + publicPath(pageHref(locale, "projects", slug)) })),
+    ...navigationKeys.map((page) => entry(locale, page === "home" ? undefined : page)),
+    ...site[locale].projects.map(({ slug }) => entry(locale, "projects", slug)),
   ]);
 }

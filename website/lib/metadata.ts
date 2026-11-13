@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { publicPath, siteOrigin } from "./origin";
-import { pageHref, type Locale, type PageKey } from "./routes";
+import { canonicalPage, pageHref, type Locale, type PageKey } from "./routes";
 
 export function portfolioMetadata(locale: Locale, title: string, description: string, page?: PageKey, slug?: string): Metadata {
   const origin = siteOrigin();
-  const url = publicPath(pageHref(locale, page, slug));
+  const canonical = canonicalPage(page);
+  const paths = {
+    en: publicPath(pageHref("en", canonical, slug)),
+    zh: publicPath(pageHref("zh", canonical, slug)),
+  };
+  const url = paths[locale];
   const image = publicPath("/social-card.png");
   return {
     metadataBase: origin ? new URL(origin) : undefined,
@@ -14,9 +19,9 @@ export function portfolioMetadata(locale: Locale, title: string, description: st
     alternates: {
       canonical: url,
       languages: {
-        en: publicPath(pageHref("en", page, slug)),
-        "zh-Hans": publicPath(pageHref("zh", page, slug)),
-        "x-default": publicPath(pageHref("en", page, slug)),
+        en: paths.en,
+        "zh-Hans": paths.zh,
+        "x-default": paths.en,
       },
     },
     openGraph: {

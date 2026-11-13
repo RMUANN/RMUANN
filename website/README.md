@@ -11,6 +11,8 @@ npm run dev
 
 Open http://localhost:3000. The root displays the English homepage. The canonical English and Chinese routes begin with `/en/` and `/zh/`. Language switching preserves the current page or case study.
 
+The main navigation links to Home, Research & Publications, Engineering Practice, and About & Contact. The legacy `contact/` and `experience/` paths lead to the matching About & Contact sections.
+
 ## Updating the site
 
 Edit `content/site.ts` to update profile details, research themes, papers, case studies, education, or contact links. Keep project slugs consistent in both languages. Add interface translations in `content/ui.ts`. Put media cleared for publication in `public/`.

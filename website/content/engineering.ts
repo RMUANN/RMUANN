@@ -11,9 +11,11 @@ interface TechnologyGroup {
 
 interface EngineeringDirection {
   id: string;
+  projectSlug: string;
   title: Localized;
   subtitle: Localized;
   description: Localized;
+  highlights: readonly string[];
   groups: readonly TechnologyGroup[];
 }
 
@@ -33,6 +35,7 @@ export const familiarity: Localized = { en: "Familiar with", zh: "了解" };
 export const engineeringDirections: readonly EngineeringDirection[] = [
   {
     id: "agent-development",
+    projectSlug: "agent-intent-routing",
     title: { en: "Agent Development", zh: "智能体开发" },
     subtitle: {
       en: "LLM Applications · RAG · Multi-Agent Systems",
@@ -42,6 +45,7 @@ export const engineeringDirections: readonly EngineeringDirection[] = [
       en: "Design and develop LLM-powered applications and intelligent agent workflows, covering intent understanding, knowledge retrieval, multi-agent orchestration, dynamic skill management, and automated evaluation.",
       zh: "围绕大语言模型应用与智能体工作流开展开发，涵盖意图理解、知识检索、多智能体协作、动态技能管理及自动化评测。",
     },
+    highlights: ["Python", "RAG", "Multi-Agent Systems", "Agent Evaluation"],
     groups: [
       {
         title: { en: "Programming & Frameworks", zh: "编程语言与框架" },
@@ -78,6 +82,7 @@ export const engineeringDirections: readonly EngineeringDirection[] = [
   },
   {
     id: "frontend-backend-development",
+    projectSlug: "go-backend-services",
     title: { en: "Frontend & Backend Development", zh: "前端与后端开发" },
     subtitle: {
       en: "Web Development · Go Backend · Microservices",
@@ -87,6 +92,7 @@ export const engineeringDirections: readonly EngineeringDirection[] = [
       en: "Develop frontend interfaces and backend services, with experience in web development, Go microservices, API integration, database and middleware systems, and service observability.",
       zh: "具备前端页面开发与后端服务开发能力，涉及 Web 页面交互、Go 微服务架构、API 接口集成、数据库与中间件，以及服务可观测性。",
     },
+    highlights: ["HTML", "CSS", "JavaScript", "Go", "Microservices"],
     groups: [
       {
         title: { en: "Frontend Development", zh: "前端开发" },
