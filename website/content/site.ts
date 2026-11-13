@@ -21,6 +21,7 @@ export interface Publication {
   authors?: string;
   href?: string;
   projectSlug?: string;
+  hideProjectLink?: boolean;
   image?: { src: string; width: number; height: number; alt: string };
 }
 
@@ -88,12 +89,12 @@ export const site: Record<Locale, SiteContent> = {
       { title: "Agent-assisted interaction", description: "Explore how agents infer intent and provide context-sensitive guidance in creative and task-oriented workflows." },
     ],
     publications: [
-      { id: "trace-motion", title: traceMotionTitle, rank: "CCF A", venue: "CHI", year: 2026, status: "Major Revision 🙏🙏🙏", role: "First author", description: "Stylus input helps users rewrite a motion prompt and refine the corresponding part of the generated motion.", image: { ...figures.traceMotion, alt: "TraceMotion workspace for rewriting a prompt, sketching a trajectory, and inspecting revised motion" } },
+      { id: "trace-motion", title: traceMotionTitle, rank: "CCF A", venue: "CHI", year: 2027, status: "Major Revision 🙏🙏🙏", role: "First author", description: "Stylus input helps users rewrite a motion prompt and refine the corresponding part of the generated motion.", image: { ...figures.traceMotion, alt: "TraceMotion workspace for rewriting a prompt, sketching a trajectory, and inspecting revised motion" } },
       { id: "comotion", title: comotionTitle, rank: "CCF B", venue: "ISS", year: 2026, status: "Accepted", role: "First author", description: "A text-to-motion system with adjustable action-level controls and a study of how people use them.", projectSlug: "comotion", image: { ...figures.comotion, alt: "CoMotion workflow from a text prompt to action-level adjustment of the generated motion" } },
       { id: "comotion-demo", title: demoTitle, rank: "CCF A", venue: "UbiComp / ISWC Demo", year: 2026, status: "Accepted", role: "First author", description: "A hands-on demonstration of semantic steering, visual comparison, and saving generated motions.", projectSlug: "comotion", image: { ...figures.demo, alt: "CoMotion Demo interaction steps for adjusting and comparing generated motions" } },
-      { id: "sandtouch", title: sandtouchTitle, rank: "CCF A", venue: "CHI", year: 2025, status: "Accepted", role: "Second student author", authors: sandtouchAuthors, description: "A VR sand painting system combining hand gestures, realistic sound, and contextual AI guidance.", projectSlug: "sandtouch", href: sandtouchDoi, image: { ...figures.sandtouch, alt: "SandTouch virtual reality setup, hand gestures, and AI guidance during sand painting" } },
+      { id: "sandtouch", title: sandtouchTitle, rank: "CCF A", venue: "CHI", year: 2025, status: "Accepted", role: "Second student author", authors: sandtouchAuthors, description: "A VR sand painting system combining hand gestures, realistic sound, and contextual AI guidance.", projectSlug: "sandtouch", hideProjectLink: true, href: sandtouchDoi, image: { ...figures.sandtouch, alt: "SandTouch virtual reality setup, hand gestures, and AI guidance during sand painting" } },
       { id: "vcaptouch", title: vcapTitle, rank: "SCI Q2", venue: "IEEE Internet of Things Journal", year: 2025, status: "Accepted", role: "Second student author", authors: vcapAuthors, description: "A digital twin for synthesizing touch sensing data for hand gesture recognition.", href: "https://doi.org/10.1109/JIOT.2025.3553561" },
-      { id: "attribute-reduction", title: attributeTitle, rank: "SCI Q3", venue: "Mathematics", year: 2024, status: "Accepted", role: "First author", description: "A hybrid supervised and unsupervised model for attribute reduction in multi-granularity data.", href: "https://doi.org/10.3390/math12101434" },
+      { id: "attribute-reduction", title: attributeTitle, rank: "SCI Q3", venue: "Mathematics", year: 2024, status: "Accepted", role: "First author", description: "A hybrid supervised and unsupervised model for attribute reduction in multi-granularity data." },
     ],
     projects: [
       {
@@ -172,12 +173,12 @@ export const site: Record<Locale, SiteContent> = {
       { title: "智能体辅助交互", description: "探索智能体如何在创作和任务流程中识别意图，并根据上下文提供引导。" },
     ],
     publications: [
-      { id: "trace-motion", title: traceMotionTitle, rank: "CCF A", venue: "CHI", year: 2026, status: "大修中🙏🙏🙏", role: "第一作者", description: "用手写笔辅助改写动作提示词，并细调生成动作的对应片段。", image: { ...figures.traceMotion, alt: "TraceMotion 的提示词改写、轨迹绘制和动作预览界面" } },
+      { id: "trace-motion", title: traceMotionTitle, rank: "CCF A", venue: "CHI", year: 2027, status: "大修中🙏🙏🙏", role: "第一作者", description: "用手写笔辅助改写动作提示词，并细调生成动作的对应片段。", image: { ...figures.traceMotion, alt: "TraceMotion 的提示词改写、轨迹绘制和动作预览界面" } },
       { id: "comotion", title: comotionTitle, rank: "CCF B", venue: "ISS", year: 2026, status: "已录用", role: "第一作者", description: "介绍具有动作级调节功能的文本到动作生成系统，并研究用户如何使用这些控件。", projectSlug: "comotion", image: { ...figures.comotion, alt: "CoMotion 从输入文本到按动作调整生成结果的流程" } },
       { id: "comotion-demo", title: demoTitle, rank: "CCF A", venue: "UbiComp / ISWC Demo", year: 2026, status: "已录用", role: "第一作者", description: "演示如何调节动作语义、对比生成结果和保存动作。", projectSlug: "comotion", image: { ...figures.demo, alt: "CoMotion Demo 中调节和比较生成动作的交互步骤" } },
-      { id: "sandtouch", title: sandtouchTitle, rank: "CCF A", venue: "CHI", year: 2025, status: "已录用", role: "学生第二作者", authors: sandtouchAuthors, description: "结合手势、拟真声音与上下文 AI 引导的 VR 沙画系统。", projectSlug: "sandtouch", href: sandtouchDoi, image: { ...figures.sandtouch, alt: "SandTouch 的虚拟现实设备、沙画手势与 AI 创作引导" } },
+      { id: "sandtouch", title: sandtouchTitle, rank: "CCF A", venue: "CHI", year: 2025, status: "已录用", role: "学生第二作者", authors: sandtouchAuthors, description: "结合手势、拟真声音与上下文 AI 引导的 VR 沙画系统。", projectSlug: "sandtouch", hideProjectLink: true, href: sandtouchDoi, image: { ...figures.sandtouch, alt: "SandTouch 的虚拟现实设备、沙画手势与 AI 创作引导" } },
       { id: "vcaptouch", title: vcapTitle, rank: "SCI 二区", venue: "IEEE Internet of Things Journal", year: 2025, status: "已录用", role: "学生第二作者", authors: vcapAuthors, description: "通过数字孪生合成触觉传感数据，用于手势识别。", href: "https://doi.org/10.1109/JIOT.2025.3553561" },
-      { id: "attribute-reduction", title: attributeTitle, rank: "SCI 三区", venue: "Mathematics", year: 2024, status: "已录用", role: "第一作者", description: "将监督与无监督方法结合，用于多粒度数据的属性约简。", href: "https://doi.org/10.3390/math12101434" },
+      { id: "attribute-reduction", title: attributeTitle, rank: "SCI 三区", venue: "Mathematics", year: 2024, status: "已录用", role: "第一作者", description: "将监督与无监督方法结合，用于多粒度数据的属性约简。" },
     ],
     projects: [
       {

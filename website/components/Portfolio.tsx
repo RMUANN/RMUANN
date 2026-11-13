@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import MotionStudy from "@/components/MotionStudy";
 import { engineeringDirections, engineeringHero, familiarity } from "@/content/engineering";
 import { site } from "@/content/site";
 import { ui } from "@/content/ui";
@@ -42,13 +41,14 @@ function PaperFigure({ paper, locale, caption }: { paper: Publication; locale: L
 
 function PaperLinks({ paper, locale, related }: { paper: Publication; locale: Locale; related?: boolean }) {
   const labels = ui[locale];
-  if (!paper.href && !paper.projectSlug && !related) return null;
+  const showProject = !related && paper.projectSlug && !paper.hideProjectLink;
+  if (!paper.href && !showProject && !related) return null;
   return <div className="paper-links">
     {related && paper.id && <ArrowLink href={pageHref(locale, "research") + "#" + paper.id}>{labels.viewPublication}</ArrowLink>}
     {paper.href && <a className="text-link" href={paper.href}>
       {paper.href.startsWith("https://doi.org/") ? "DOI" : labels.readPaper} <span aria-hidden="true">↗</span>
     </a>}
-    {!related && paper.projectSlug && <ArrowLink href={pageHref(locale, "projects", paper.projectSlug)}>{labels.viewProject}</ArrowLink>}
+    {showProject && <ArrowLink href={pageHref(locale, "projects", paper.projectSlug)}>{labels.viewProject}</ArrowLink>}
   </div>;
 }
 
@@ -259,6 +259,11 @@ export function ProjectDetail({ locale, project }: { locale: Locale; project: Pr
     <PageHead title={project.title} description={project.description}>
       <ArrowLink href={pageHref(locale, research ? "research" : "projects")}>{research ? labels.backToResearch : labels.backToEngineering}</ArrowLink>
     </PageHead>
+    {project.slug === "comotion" && (
+      <video className="project-video" controls playsInline preload="metadata" aria-label={labels.comotionVideo}>
+        <source src={publicPath("/videos/comotion-final.mp4")} type="video/mp4" />
+      </video>
+    )}
     <div className="page-body project-detail">
       <div className="reading">{project.sections.map((section) => (
         <section key={section.title}><h2>{section.title}</h2><p>{section.body}</p></section>
@@ -266,7 +271,6 @@ export function ProjectDetail({ locale, project }: { locale: Locale; project: Pr
       <aside className="detail-aside">
         {research ? <>
           <PaperFigure paper={papers[0]} locale={locale} caption={project.title} />
-          {project.slug === "comotion" && <MotionStudy locale={locale} />}
         </> : <>
           <section><h2>{labels.relatedTechnologies}</h2><Tags items={project.technologies ?? []} /></section>
           <section><h2>{labels.relatedProjects}</h2>

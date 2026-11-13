@@ -23,14 +23,17 @@ test("publication entries link to public projects and the verified SandTouch DOI
   for (const locale of locales) {
     const { projects, publications } = site[locale];
     assert.deepEqual(publications.map(({ id }) => id), ids);
-    assert.equal(publications[0].href, undefined);
-    assert.equal(publications[0].projectSlug, undefined);
-    for (const publication of publications.slice(1)) {
-      if (publication.projectSlug) assert.ok(projects.some(({ slug }) => slug === publication.projectSlug));
-      else assert.match(publication.href ?? "", /^https:\/\/doi\.org\//);
-      if (publication.projectSlug === "comotion") assert.equal(publication.href, undefined);
-      if (publication.projectSlug === "sandtouch") assert.equal(publication.href, "https://doi.org/10.1145/3706598.3714275");
+    const [traceMotion, comotion, demo, sandtouch, vcapTouch, attributeReduction] = publications;
+    assert.equal(traceMotion.year, 2027);
+    assert.equal(traceMotion.href, undefined);
+    assert.equal(traceMotion.projectSlug, undefined);
+    for (const paper of [comotion, demo, sandtouch]) {
+      assert.ok(projects.some(({ slug }) => slug === paper.projectSlug));
     }
+    assert.equal(sandtouch.hideProjectLink, true);
+    assert.equal(sandtouch.href, "https://doi.org/10.1145/3706598.3714275");
+    assert.equal(vcapTouch.href, "https://doi.org/10.1109/JIOT.2025.3553561");
+    assert.equal(attributeReduction.href, undefined);
   }
 });
 

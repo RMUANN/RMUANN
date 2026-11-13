@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 import assert from "node:assert/strict";
 
 const pages = ["", "about/", "research/", "projects/", "publications/", "experience/", "contact/"];
@@ -90,19 +90,27 @@ for (const locale of locales) {
       const slug = route.split("/")[1];
       assert.ok(main.includes('href="' + prefix + "research/#" + slug + '"'));
     }
+    if (route === "projects/comotion/") {
+      assert.match(main, /<video\b[^>]*\bcontrols\b/);
+      assert.ok(main.includes('src="' + basePath + '/videos/comotion-final.mp4"'));
+      assert.doesNotMatch(main, /motion-panel|motion-canvas/);
+    }
+    if (route === "") assert.ok(!main.includes('href="' + prefix + 'projects/sandtouch/"'));
     if (route === "research/" || route === "publications/") {
       assert.ok(page.indexOf('id="directions"') >= 0 && page.indexOf('id="directions"') < page.indexOf('id="papers"'));
       const firstPaper = (page.match(/id="papers"[\s\S]*?<li\b[^>]*>([\s\S]*?)<\/li>/)?.[1] ?? "").replaceAll("<!-- -->", "");
       assert.match(firstPaper, /<h3 lang="en">TraceMotion:/);
-      assert.match(firstPaper, /CCF A[\s\S]*?CHI <time dateTime="2026">2026<\/time>/);
+      assert.match(firstPaper, /CCF A[\s\S]*?CHI <time dateTime="2027">2027<\/time>/);
       assert.match(firstPaper, locale === "zh" ? /第一作者[\s\S]*?大修中🙏🙏🙏/ : /First author[\s\S]*?Major Revision 🙏🙏🙏/);
       assert.equal([...page.matchAll(/<h3 lang="en">TraceMotion:/g)].length, 1);
       assert.match(firstPaper, locale === "zh" ? /用手写笔辅助改写动作提示词，并细调生成动作的对应片段。/ : /Stylus input helps users rewrite a motion prompt and refine the corresponding part of the generated motion\./);
       const traceMotionImage = preview ? "data:image/webp;base64," : basePath + "/papers/tracemotion.webp";
       assert.ok(firstPaper.includes('src="' + traceMotionImage));
       assert.doesNotMatch(firstPaper, /href="https:\/\/doi\.org|href="[^"]*\/projects\//);
-      for (const slug of details.slice(0, 2)) assert.ok(main.includes('href="' + prefix + 'projects/' + slug + '/"'));
-      for (const doi of ["10.1145/3706598.3714275", "10.1109/JIOT.2025.3553561", "10.3390/math12101434"]) {
+      assert.ok(main.includes('href="' + prefix + 'projects/comotion/"'));
+      assert.ok(!main.includes('href="' + prefix + 'projects/sandtouch/"'));
+      assert.ok(!main.includes('href="https://doi.org/10.3390/math12101434"'));
+      for (const doi of ["10.1145/3706598.3714275", "10.1109/JIOT.2025.3553561"]) {
         assert.ok(main.includes('href="https://doi.org/' + doi + '"'));
       }
       for (const figure of ["comotion", "comotion-demo", "sandtouch"]) {
@@ -120,4 +128,6 @@ if (sitemap.includes("<loc>")) {
   assert.doesNotMatch(sitemap, /\/(?:publications|experience|contact)\//);
 }
 assert.ok((await readFile(out("social-card.png"))).length > 0);
+const videoSize = (await stat(out("videos/comotion-final.mp4"))).size;
+assert.ok(videoSize > 0 && videoSize < 100 * 1024 ** 2);
 console.log("Verified " + (routes.length * locales.length + 1) + " exported pages, localized links, and metadata assets.");
