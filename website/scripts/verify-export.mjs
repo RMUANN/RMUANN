@@ -62,7 +62,10 @@ for (const locale of locales) {
     if (route === "") {
       const hero = main.match(/<section class="hero editorial-hero">([\s\S]*?)<\/section>/)?.[1] ?? "";
       assert.doesNotMatch(hero, /motion-panel|<canvas|<input/);
-      for (const name of ["comotion", "tracemotion"]) assert.ok(hero.includes("/papers/" + name + ".webp"));
+      const carousel = hero.match(/<div class="research-carousel"[\s\S]*?<\/div><ul class="engineering-tags"/)?.[0] ?? "";
+      const slides = [...carousel.matchAll(/<img\b[^>]*src="[^"]*\/papers\/([^"]+)\.webp"/g)].map(([, name]) => name);
+      assert.deepEqual(slides, ["comotion", "comotion-demo", "tracemotion", "sandtouch"]);
+      assert.doesNotMatch(carousel, /<figcaption/);
       for (const path of primary.slice(1)) assert.ok(hero.includes('href="' + prefix + path + '"'));
       assert.ok(main.includes(prefix + "about/#contact"));
     }

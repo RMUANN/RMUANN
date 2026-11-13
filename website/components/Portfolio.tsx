@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ResearchCarousel from "@/components/ResearchCarousel";
 import { engineeringDirections, engineeringHero, familiarity } from "@/content/engineering";
 import { site } from "@/content/site";
 import { ui } from "@/content/ui";
@@ -87,6 +88,10 @@ export function Home({ locale }: { locale: Locale }) {
   const copy = site[locale];
   const labels = ui[locale];
   const selected = ["comotion", "trace-motion", "sandtouch"].map((id) => copy.publications.find((paper) => paper.id === id)!);
+  const slides = ["comotion", "comotion-demo", "trace-motion", "sandtouch"].flatMap((id) => {
+    const image = copy.publications.find((paper) => paper.id === id)?.image;
+    return image ? [{ ...image, src: publicPath(image.src) }] : [];
+  });
   return <>
     <section className="hero editorial-hero">
       <div>
@@ -101,9 +106,8 @@ export function Home({ locale }: { locale: Locale }) {
           <Link className="button secondary" href={pageHref(locale, "about")}>{labels.about}</Link>
         </div>
       </div>
-      <div className="research-collage">
-        <PaperFigure paper={selected[0]} locale={locale} caption="CoMotion" />
-        <PaperFigure paper={selected[1]} locale={locale} caption="TraceMotion" />
+      <div className="hero-research">
+        <ResearchCarousel slides={slides} locale={locale} />
         <Tags items={["HCI", "Text-to-Motion", "LLM Agents", "RAG", "Python", "Go", "Human-AI Interaction"]} />
       </div>
     </section>
