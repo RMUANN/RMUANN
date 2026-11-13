@@ -1,160 +1,67 @@
+
 <div align="center">
 
-# Hi, I'm RMUANN 👋
+# Zeyuan Fan
 
-### Computer Science Graduate Student · AI Explorer · VR/3D Developer · Text-to-Motion Researcher
+**HCI Researcher · AI Engineer**
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=2600&pause=900&center=true&vCenter=true&width=900&lines=Exploring+AI+and+Human+Motion+Generation;Building+Interactive+3D+and+VR+Experiences;Researching+Text-to-Motion+Generation;Turning+Ideas+into+Useful+Tools" alt="Typing SVG" />
+Exploring human-centered generative AI and building intelligent applications.
 
-<br/>
-
-
-
-
-<img src="https://komarev.com/ghpvc/?username=RMUANN&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile Views" />
-
+[Personal Website](https://rmuann.github.io/RMUANN/en/)
 
 </div>
 
 ---
 
+### 01 / Research Interests
 
+My research explores how people express, refine, and control generative systems, with a focus on human-centered interaction.
 
-
-## About Me
-
-I am a **Computer Science graduate student** with a strong interest in the rapid development of **Artificial Intelligence** and its impact on future tools, interaction, and creative systems.
-
-I have rich hands-on experience in **VR and 3D development**, including interactive application design, real-time rendering workflows, and related academic research. My current research focus is **Text-to-Motion (T2M) generation**, especially controllable and interactive motion generation systems that can better understand user intent and translate language into expressive human motion.
-
-Beyond research, I am familiar with the broader software development stack, from algorithm implementation and backend services to frontend interaction and product-oriented development. I enjoy building practical systems, research prototypes, and developer tools that connect technical ideas with real user experience.
-
-My long-term goal is to create a tool that I genuinely love using — and that can also be widely accepted, useful, and meaningful to others.
-
-I am always open to discussions and collaborations around **AI**, **motion generation**, **3D interaction**, **VR development**, and **creative AI tools**.
-
-<div align="center">
-
-<img src="https://metrics.lecoq.io/RMUANN?template=classic&config.timezone=Asia%2FShanghai" alt="GitHub Metrics" />
-
-</div>
-
+- Human-Computer Interaction (HCI)
+- Human-AI Interaction
+- Text-to-Motion Generation
+- Interactive Motion Editing
+- Controllable Generative Systems
+- Multimodal Interaction
 
 ---
 
-## Research Interests
+### 02 / Agent Development
 
-<div align="center">
+**LLM & Agent Systems**
 
-<img src="https://img.shields.io/badge/Text--to--Motion-Research-blueviolet?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Human%20Motion-Generation-6c5ce7?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Semantic%20Steering-Control-00cec9?style=for-the-badge" />
-<img src="https://img.shields.io/badge/VR%20%26%203D-Interaction-00b894?style=for-the-badge" />
+Python · FastAPI · Claude · DeepSeek API · Prompt Engineering · Few-shot Learning · Function Calling · Structured Output · Intent Recognition · Intent Routing · Multi-Agent Systems · MCP · Dynamic Skills · LangChain · LangGraph
 
-</div>
+**RAG & Evaluation**
 
-<br/>
+ChromaDB · Embeddings · Vector Search · Query Rewriting · Hybrid Retrieval · Reranking · Accuracy · Macro-F1 · LLM-as-Judge
 
-* Text-to-Motion Generation
-* Human Motion Generation
-* Interactive Motion Control
-* Semantic Motion Steering
-* VR / 3D Interaction
-* AI-powered Creative Tools
-* Full-stack AI Application Development
+**Supporting Technologies**
+
+Redis · Docker · Prometheus
 
 ---
 
-## Tech Stack
+### 03 / Frontend & Backend Development
 
-<div align="center">
+**Frontend**
 
-<img src="https://skillicons.dev/icons?i=python,pytorch,cpp,cs,unity,fastapi,linux,git,vscode,latex" alt="Tech Stack" />
+HTML · CSS · JavaScript
 
-</div>
+**Backend & APIs**
 
-<br/>
+Go · Python · Kratos · Go-zero · Gin · FastAPI · gRPC · Protobuf · Wire · Etcd · Nacos · RESTful API · SSE · WebSocket
 
-<div align="center">
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=RMUANN&hide_title=true&hide_border=true&layout=compact&langs_count=6&text_color=000&icon_color=fff&bg_color=0,52fa5a,4dfcff,c64dff&theme=graywhite" alt="Top Languages" />
+**Data & Infrastructure**
 
-</div>
-
----
-
-## Currently Exploring
-
-```text
-AI + Motion Generation + 3D Interaction
-```
-
-* Building controllable Text-to-Motion generation systems
-* Exploring interactive semantic steering for generated motion
-* Developing research workflows for experiments, notes, and automation
-* Turning research prototypes into tools with real user value
-
-
----
-
-## GitHub Stats
-
-<div align="center">
-
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=RMUANN&show_icons=true&hide_title=true&hide_border=true&text_color=000&icon_color=fff&bg_color=0,52fa5a,4dfcff,c64dff&theme=graywhite" alt="GitHub Stats" />
-
-</div>
-
-
-
-<br/>
-
-<div align="center">
-
-<img src="https://streak-stats.demolab.com?user=RMUANN&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
-
-</div>
-
----
-
-
-## My Direction
-
-```text
-From research ideas to interactive tools.
-```
-
-I care not only about whether a model works, but also about whether people can actually interact with it, control it, understand it, and benefit from it.
-
-My ideal work lies at the intersection of:
-
-```text
-Research × Engineering × Interaction × Product
-```
-
----
-
-## Featured Topics
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/AI-Exploration-0984e3?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Text--to--Motion-Research-blueviolet?style=for-the-badge" />
-<img src="https://img.shields.io/badge/VR%20%26%203D-Development-00b894?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Full--Stack-Tools-fdcb6e?style=for-the-badge" />
-
-</div>
-
----
-
-## Let's Connect
-
-* GitHub: [RMUANN](https://github.com/RMUANN)
-* Email: [fanzeyuan111@163.com](mailto:fanzeyuan111@163.com)
+MySQL · TiDB · Redis · Kafka · Elasticsearch · Canal · Docker · Git · Prometheus · Grafana · Jaeger · OpenTelemetry · Kubernetes
 
 ---
 
 <div align="center">
 
-### Always learning. Always building. Always exploring.
+For more information about my research and background, visit my
+
+**[Personal Website](https://rmuann.github.io/RMUANN/en/)**
 
 </div>
