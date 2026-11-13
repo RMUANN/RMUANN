@@ -20,8 +20,8 @@ test("every localized project has an equivalent page and substantive sections", 
 test("publication entries link to public projects and the verified SandTouch DOI", () => {
   for (const locale of locales) {
     const { projects, publications } = site[locale];
-    assert.equal(publications.length, 5);
-    for (const publication of publications) {
+    assert.equal(publications.length, 6);
+    for (const publication of publications.slice(1)) {
       if (publication.projectSlug) assert.ok(projects.some(({ slug }) => slug === publication.projectSlug));
       else assert.match(publication.href ?? "", /^https:\/\/doi\.org\//);
       if (publication.projectSlug === "comotion") assert.equal(publication.href, undefined);

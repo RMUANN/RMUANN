@@ -56,7 +56,7 @@ function Papers({ papers, related = false }: { papers: Publication[]; related?: 
         {paper.authors && <p className="paper-authors" lang="en">{paper.authors.split(", ").map((name, i) =>
           <span key={name}>{i > 0 && ", "}{name === "Zeyuan Fan" ? <strong>{name}</strong> : name}</span>
         )}</p>}
-        <p>{paper.description}</p>
+        {paper.description && <p>{paper.description}</p>}
       </div>
       {paper.image && !related && <figure className="paper-figure">
         <Image src={paper.image.src.startsWith("/") ? publicPath(paper.image.src) : paper.image.src}
@@ -146,7 +146,7 @@ export function SectionPage({ locale, page, preview = [] }: { locale: Locale; pa
         </section>
         <section aria-labelledby="papers">
           <h2 id="papers">{labels.papers}</h2>
-          <Papers papers={[...preview, ...copy.publications]} />
+          <Papers papers={[...preview, ...copy.publications.filter((paper) => !preview.some((entry) => entry.title === paper.title))]} />
         </section>
       </div>}
       {page === "projects" && <Projects projects={copy.projects.filter(({ slug }) => !isResearchProject(slug))} locale={locale} standalone />}

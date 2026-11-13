@@ -27,10 +27,15 @@ for (const locale of locales) {
       assert.ok(known.has(href), "unknown internal route " + href);
     }
     assert.doesNotMatch(page, /private-references|\/data\/|@163\.com/i);
-    if (!preview) assert.doesNotMatch(page, /TraceMotion|research-preview\.json/);
+    if (!preview) assert.doesNotMatch(page, /research-preview\.json|tracemotion\.webp|data:image\/webp;base64,/i);
     if (route === "research/" || route === "publications/") {
       assert.ok(page.indexOf('id="directions"') >= 0 && page.indexOf('id="directions"') < page.indexOf('id="papers"'));
-      if (preview) assert.match(page, /id="papers"[\s\S]*?<h3 lang="en">TraceMotion:/);
+      const firstPaper = (page.match(/id="papers"[\s\S]*?<li\b[^>]*>([\s\S]*?)<\/li>/)?.[1] ?? "").replaceAll("<!-- -->", "");
+      assert.match(firstPaper, /<h3 lang="en">TraceMotion:/);
+      assert.match(firstPaper, /CCF A[\s\S]*?CHI <time dateTime="2026">2026<\/time>/);
+      assert.match(firstPaper, locale === "zh" ? /第一作者[\s\S]*?大修中🙏🙏🙏/ : /First author[\s\S]*?Major Revision 🙏🙏🙏/);
+      assert.equal([...page.matchAll(/<h3 lang="en">TraceMotion:/g)].length, 1);
+      if (preview) assert.match(firstPaper, /data:image\/webp;base64,/);
       for (const figure of ["comotion", "comotion-demo", "sandtouch"]) {
         assert.ok(page.includes('src="' + basePath + '/papers/' + figure + '.webp"'));
       }

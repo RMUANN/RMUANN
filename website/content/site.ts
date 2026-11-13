@@ -7,7 +7,9 @@ interface Summary {
   description: string;
 }
 
-export interface Publication extends Summary {
+export interface Publication {
+  title: string;
+  description?: string;
   rank: string;
   venue?: string;
   year?: number;
@@ -40,6 +42,7 @@ interface SiteContent {
   contact: { label: string; href: string }[];
 }
 
+const traceMotionTitle = "TraceMotion: Bridging the Text–to-Motion Gap through Stylus-Guided Motion Rewriting";
 const comotionTitle = "CoMotion: A Real-Time System for User-Driven Semantic Steering in Text-to-Motion Generation";
 const demoTitle = "CoMotion Demo: Demonstrating User-Driven Semantic Steering in Text-to-Motion Generation";
 const sandtouchTitle = "SandTouch: Empowering Virtual Sand Art in VR with AI Guidance and Emotional Relief";
@@ -78,6 +81,7 @@ export const site: Record<Locale, SiteContent> = {
       { title: "Agent-assisted interaction", description: "Explore how agents infer intent and provide context-sensitive guidance in creative and task-oriented workflows." },
     ],
     publications: [
+      { title: traceMotionTitle, rank: "CCF A", venue: "CHI", year: 2026, status: "Major Revision 🙏🙏🙏", role: "First author" },
       { title: comotionTitle, rank: "CCF B", venue: "ISS", year: 2026, status: "Accepted", role: "First author", description: "A text-to-motion system with adjustable action-level controls and a study of how people use them.", projectSlug: "comotion", image: { ...figures.comotion, alt: "CoMotion workflow from a text prompt to action-level adjustment of the generated motion" } },
       { title: demoTitle, rank: "CCF A", venue: "UbiComp / ISWC Demo", year: 2026, status: "Accepted", role: "First author", description: "A hands-on demonstration of semantic steering, visual comparison, and saving generated motions.", projectSlug: "comotion", image: { ...figures.demo, alt: "CoMotion Demo interaction steps for adjusting and comparing generated motions" } },
       { title: sandtouchTitle, rank: "CCF A", venue: "CHI", year: 2025, status: "Accepted", role: "Second student author", authors: sandtouchAuthors, description: "A VR sand painting system combining hand gestures, realistic sound, and contextual AI guidance.", projectSlug: "sandtouch", href: sandtouchDoi, image: { ...figures.sandtouch, alt: "SandTouch virtual reality setup, hand gestures, and AI guidance during sand painting" } },
@@ -152,6 +156,7 @@ export const site: Record<Locale, SiteContent> = {
       { title: "智能体辅助交互", description: "探索智能体如何在创作和任务流程中识别意图，并根据上下文提供引导。" },
     ],
     publications: [
+      { title: traceMotionTitle, rank: "CCF A", venue: "CHI", year: 2026, status: "大修中🙏🙏🙏", role: "第一作者" },
       { title: comotionTitle, rank: "CCF B", venue: "ISS", year: 2026, status: "已录用", role: "第一作者", description: "介绍具有动作级调节功能的文本到动作生成系统，并研究用户如何使用这些控件。", projectSlug: "comotion", image: { ...figures.comotion, alt: "CoMotion 从输入文本到按动作调整生成结果的流程" } },
       { title: demoTitle, rank: "CCF A", venue: "UbiComp / ISWC Demo", year: 2026, status: "已录用", role: "第一作者", description: "演示如何调节动作语义、对比生成结果和保存动作。", projectSlug: "comotion", image: { ...figures.demo, alt: "CoMotion Demo 中调节和比较生成动作的交互步骤" } },
       { title: sandtouchTitle, rank: "CCF A", venue: "CHI", year: 2025, status: "已录用", role: "学生第二作者", authors: sandtouchAuthors, description: "结合手势、拟真声音与上下文 AI 引导的 VR 沙画系统。", projectSlug: "sandtouch", href: sandtouchDoi, image: { ...figures.sandtouch, alt: "SandTouch 的虚拟现实设备、沙画手势与 AI 创作引导" } },

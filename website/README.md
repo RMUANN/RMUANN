@@ -37,4 +37,4 @@ Build and run `npm run verify:export` with `SITE_URL=https://rmuann.github.io` a
 
 ## Reviewing unpublished papers locally
 
-For a local review of unpublished papers, run `$env:RESEARCH_PREVIEW='1'; npm.cmd run dev -- --hostname 127.0.0.1` in PowerShell from this directory. Preview content comes from the ignored `../data/research-preview.json` and its companion images. Do not set this flag in a public build.
+To review private research descriptions and figures locally, run `$env:RESEARCH_PREVIEW='1'; npm.cmd run dev -- --hostname 127.0.0.1` in PowerShell from this directory. Preview entries from the ignored `../data/research-preview.json` replace public entries with matching titles. Do not set this flag in a public build.
