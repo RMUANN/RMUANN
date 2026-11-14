@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "Please cite the CoMotion paper when using this research project."
+title: "CoMotion: A Real-Time System for User-Driven Semantic Steering in Text-to-Motion Generation"
+type: software
+authors:
+  - family-names: Fan
+    given-names: Zeyuan
+  - family-names: Xia
+    given-names: Chengshuo
+preferred-citation:
+  type: article
+  title: "CoMotion: A Real-Time System for User-Driven Semantic Steering in Text-to-Motion Generation"
+  authors:
+    - family-names: Fan
+      given-names: Zeyuan
+    - family-names: Xia
+      given-names: Chengshuo
+  journal: "Proceedings of the ACM on Human-Computer Interaction"
+  year: 2026
+  volume: "10"
+  issue: "8"
+  doi: "10.1145/3859320"

@@ -1,0 +1,15 @@
+CoMotion
+Authors: Zeyuan Fan and Chengshuo Xia
+
+The motion model code and supporting utilities include code from T2M-GPT
+(https://github.com/Mael-zys/T2M-GPT), whose Apache License 2.0 text is
+preserved in LICENSE. That upstream license is not a blanket license grant
+for independently authored CoMotion code or separately licensed components.
+
+backend/utils/quaternion.py retains its Facebook copyright notice and
+contains QuaterNet-derived routines. The QuaterNet license is preserved
+in licenses/QuaterNet.txt (CC BY-NC 4.0).
+
+CLIP is installed separately from https://github.com/openai/CLIP and is
+distributed under its own MIT license. Model resources are obtained from
+the linked upstream hosts, not bundled with this source distribution.
