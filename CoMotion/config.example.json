@@ -1,8 +1,0 @@
-{
-  "host": "127.0.0.1",
-  "port": 8000,
-  "device": "cuda",
-  "model_root": "backend",
-  "data_dir": "data",
-  "max_data_bytes": 10737418240
-}
