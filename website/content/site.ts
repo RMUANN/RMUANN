@@ -63,6 +63,7 @@ const figures = {
   sandtouch: { src: "/papers/sandtouch.webp", width: 1361, height: 567 },
 };
 const github = { label: "GitHub", href: "https://github.com/RMUANN" };
+export const contactEmail = "fanzeyuan111@163.com";
 const agentTechnologies = ["Intent Recognition", "Multi-Path Matching", "RAG Pipeline", "Multi-Agent Routing", "Agent Evaluation"] as const;
 const goTechnologies = ["HTML", "CSS", "JavaScript", "Go", "Kratos"] as const;
 
@@ -79,7 +80,7 @@ export const site: Record<Locale, SiteContent> = {
       publications: { title: "Publications", description: "Peer-reviewed work on controllable text-to-motion generation and virtual sand art." },
       projects: { title: "Engineering Practice", description: engineeringHero.description.en },
       experience: { title: "Experience", description: "Hands-on work in backend systems and AI agents." },
-      contact: { title: "Contact", description: "Find me on GitHub for research and engineering collaboration." },
+      contact: { title: "Contact", description: "Get in touch by email or on GitHub for research and engineering collaboration." },
     },
     themes: [
       { title: "Controllable text-to-motion", description: "Use language to describe a motion and give people a way to tune its constituent actions." },
@@ -163,7 +164,7 @@ export const site: Record<Locale, SiteContent> = {
       publications: { title: "论文", description: "关于可控文本到动作生成与虚拟沙画的同行评审成果。" },
       projects: { title: "工程实践", description: engineeringHero.description.zh },
       experience: { title: "经历", description: "后端系统与智能体开发实践。" },
-      contact: { title: "联系", description: "欢迎通过 GitHub 交流科研和工程合作。" },
+      contact: { title: "联系", description: "欢迎通过邮箱或 GitHub 交流科研与工程合作。" },
     },
     themes: [
       { title: "可控文本到动作生成", description: "用自然语言描述动作，并让用户能够调整其中各个动作的表现。" },

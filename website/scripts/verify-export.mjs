@@ -9,6 +9,7 @@ const basePath = process.env.SITE_BASE_PATH || "";
 const preview = process.env.RESEARCH_PREVIEW === "1";
 const primary = ["", "research/", "projects/", "about/"];
 const aliases = new Map([["contact/", "contact"], ["experience/", "background"]]);
+const contactEmail = "fanzeyuan111@163.com";
 const privacy = /百胜|顺丰|Yum\s+China|SF\s+(?:Express|Holding)|城市治理|空间研判|短链|urban governance|spatial assessment|short[- ]link|租户|2026[-./]0[369]|2026年[369]月/i;
 
 async function html(path) {
@@ -46,7 +47,8 @@ for (const locale of locales) {
         assert.ok(target.includes('id="' + hash.slice(1) + '"'), "missing anchor " + href + hash);
       }
     }
-    assert.doesNotMatch(page, /private-references|\/data\/|@163\.com/i);
+    assert.doesNotMatch(page, /private-references|\/data\//i);
+    assert.doesNotMatch(route === "about/" ? page.replaceAll(contactEmail, "") : page, /@163\.com/i);
     assert.doesNotMatch(page, privacy);
     if (!preview) assert.doesNotMatch(page, /research-preview\.json|data:image\/webp;base64,/i);
     if (!aliases.has(route)) {
@@ -71,7 +73,9 @@ for (const locale of locales) {
     }
     if (route === "about/") {
       for (const id of ["education", "background", "contact"]) assert.ok(main.includes('id="' + id + '"'));
-      assert.ok(main.includes('href="https://github.com/RMUANN"'));
+      const contact = main.match(/<section aria-labelledby="contact">([\s\S]*?)<\/section>/)?.[1] ?? "";
+      assert.ok(contact.includes(`href="mailto:${contactEmail}">${contactEmail}</a>`));
+      assert.ok(contact.includes('href="https://github.com/RMUANN"'));
     }
     if (route === "projects/") {
       const directions = [...main.matchAll(/<h2\b[^>]*>([^<]+)<\/h2>/g)].map(([, title]) => title);

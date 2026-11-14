@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ResearchCarousel from "@/components/ResearchCarousel";
 import { engineeringDirections, engineeringHero, familiarity } from "@/content/engineering";
-import { site } from "@/content/site";
+import { contactEmail, site } from "@/content/site";
 import { ui } from "@/content/ui";
 import { publicPath } from "@/lib/origin";
 import { pageHref, type Locale, type PageKey } from "@/lib/routes";
@@ -79,9 +79,12 @@ function Papers({ papers, locale, related = false }: { papers: Publication[]; lo
 }
 
 function Contact({ copy }: { copy: Copy }) {
-  return <div className="hero-actions">{copy.contact.map((item) =>
-    <a className="button primary" key={item.href} href={item.href}>{item.label} <span aria-hidden="true">↗</span></a>
-  )}</div>;
+  return <div className="hero-actions">
+    <a className="button primary" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+    {copy.contact.map((item) =>
+      <a className="button primary" key={item.href} href={item.href}>{item.label} <span aria-hidden="true">↗</span></a>
+    )}
+  </div>;
 }
 
 export function Home({ locale }: { locale: Locale }) {
